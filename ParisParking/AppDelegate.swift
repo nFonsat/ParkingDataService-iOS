@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let mainViewController = ViewController(nibName: "ViewController", bundle: nil)
         
-        window?.rootViewController = mainViewController
+        window?.rootViewController = UINavigationController(rootViewController: mainViewController)
         window?.makeKeyAndVisible()
         return true
     }
