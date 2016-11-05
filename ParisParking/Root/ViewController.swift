@@ -21,18 +21,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         mapViewInit()
         
+        /*
         let template = "http://tile.openstreetmap.org/{z}/{x}/{y}.png"
         self.mapViewTemplate(template)
+        */
         
         self.title = "Paris..."
         
-        let searchItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: #selector(ViewController.goToSearchView))
-        let filterItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(ViewController.filterModal))
+        let searchItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(ViewController.goToSearchView))
+        let filterItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(ViewController.filterModal))
         self.navigationItem.rightBarButtonItems = [searchItem, filterItem];
     }
     
     func goToSearchView() {
-        print("--goToSearchView")
+        let searchViewController = SearchViewController()
+        self.navigationController?.pushViewController(searchViewController, animated: true)
     }
     
     func filterModal() {
@@ -48,7 +51,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     func authorizationCoreLocation() {
         let status = CLLocationManager.authorizationStatus()
-        if status == .NotDetermined || status == .Denied || status == .AuthorizedWhenInUse {
+        if status == .notDetermined || status == .denied || status == .authorizedWhenInUse {
             locationManager.requestAlwaysAuthorization()
             locationManager.requestWhenInUseAuthorization()
         }
@@ -70,16 +73,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         mapView.userTrackingMode = MKUserTrackingMode(rawValue: 2)!
     }
     
-    func mapViewTemplate(template: String) {
-        let overlay  = MKTileOverlay(URLTemplate: template)
+    func mapViewTemplate(_ template: String) {
+        let overlay  = MKTileOverlay(urlTemplate: template)
         overlay.canReplaceMapContent = true
         
-        mapView.addOverlay(overlay, level: .AboveLabels)
+        mapView.add(overlay, level: .aboveLabels)
         
     }
     
-    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
-        if overlay.isKindOfClass(MKTileOverlay) {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay.isKind(of: MKTileOverlay.self) {
             return MKTileOverlayRenderer(overlay: overlay)
         }
         
