@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1079DCBB1DCDBB0600A50781 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1079DCB91DCDBB0600A50781 /* Alamofire.framework */; };
+		1079DCBC1DCDBB0600A50781 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */; };
+		1079DCBE1DCDBB6700A50781 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1079DCB91DCDBB0600A50781 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1079DCBF1DCDBB6700A50781 /* SwiftyJSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		378A818A1D7FF38600DD8AE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A81891D7FF38600DD8AE7 /* AppDelegate.swift */; };
 		378A81911D7FF38600DD8AE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378A81901D7FF38600DD8AE7 /* Assets.xcassets */; };
 		378A81941D7FF38600DD8AE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378A81921D7FF38600DD8AE7 /* LaunchScreen.storyboard */; };
@@ -16,7 +20,23 @@
 		378A81A61D803C4C00DD8AE7 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 378A81A41D803C4C00DD8AE7 /* SearchViewController.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1079DCBD1DCDBB4C00A50781 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1079DCBE1DCDBB6700A50781 /* Alamofire.framework in CopyFiles */,
+				1079DCBF1DCDBB6700A50781 /* SwiftyJSON.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1079DCB91DCDBB0600A50781 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		378A81861D7FF38600DD8AE7 /* ParisParking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParisParking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		378A81891D7FF38600DD8AE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		378A81901D7FF38600DD8AE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -33,17 +53,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1079DCBB1DCDBB0600A50781 /* Alamofire.framework in Frameworks */,
+				1079DCBC1DCDBB0600A50781 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1079DCB81DCDBB0600A50781 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1079DCB91DCDBB0600A50781 /* Alamofire.framework */,
+				1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		378A817D1D7FF38600DD8AE7 = {
 			isa = PBXGroup;
 			children = (
 				378A81881D7FF38600DD8AE7 /* ParisParking */,
 				378A81871D7FF38600DD8AE7 /* Products */,
+				1079DCB81DCDBB0600A50781 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +128,7 @@
 				378A81821D7FF38600DD8AE7 /* Sources */,
 				378A81831D7FF38600DD8AE7 /* Frameworks */,
 				378A81841D7FF38600DD8AE7 /* Resources */,
+				1079DCBD1DCDBB4C00A50781 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -268,6 +301,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ParisParking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -283,6 +320,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ParisParking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
