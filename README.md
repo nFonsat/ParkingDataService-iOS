@@ -1,5 +1,8 @@
 DataService Project
 ===================
 
-brew install carthage
-carthage update --platform iOS
+Installation
+------------
+
+1. brew install carthage
+2. carthage update --platform iOS
