@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10353CDC1DCF3D1000A74914 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353CD71DCF3D1000A74914 /* ViewController.swift */; };
+		10353CDD1DCF3D1000A74914 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10353CD81DCF3D1000A74914 /* ViewController.xib */; };
+		10353CDE1DCF3D1000A74914 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353CDA1DCF3D1000A74914 /* SearchViewController.swift */; };
+		10353CDF1DCF3D1000A74914 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10353CDB1DCF3D1000A74914 /* SearchViewController.xib */; };
 		1079DCBB1DCDBB0600A50781 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1079DCB91DCDBB0600A50781 /* Alamofire.framework */; };
 		1079DCBC1DCDBB0600A50781 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */; };
 		1079DCBE1DCDBB6700A50781 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1079DCB91DCDBB0600A50781 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -14,10 +18,6 @@
 		378A818A1D7FF38600DD8AE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A81891D7FF38600DD8AE7 /* AppDelegate.swift */; };
 		378A81911D7FF38600DD8AE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378A81901D7FF38600DD8AE7 /* Assets.xcassets */; };
 		378A81941D7FF38600DD8AE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378A81921D7FF38600DD8AE7 /* LaunchScreen.storyboard */; };
-		378A81A01D7FF98C00DD8AE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A819E1D7FF98C00DD8AE7 /* ViewController.swift */; };
-		378A81A11D7FF98C00DD8AE7 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 378A819F1D7FF98C00DD8AE7 /* ViewController.xib */; };
-		378A81A51D803C4C00DD8AE7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A81A31D803C4C00DD8AE7 /* SearchViewController.swift */; };
-		378A81A61D803C4C00DD8AE7 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 378A81A41D803C4C00DD8AE7 /* SearchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +35,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		10353CD71DCF3D1000A74914 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		10353CD81DCF3D1000A74914 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		10353CDA1DCF3D1000A74914 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		10353CDB1DCF3D1000A74914 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		1079DCB91DCDBB0600A50781 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		378A81861D7FF38600DD8AE7 /* ParisParking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParisParking.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,10 +46,6 @@
 		378A81901D7FF38600DD8AE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		378A81931D7FF38600DD8AE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		378A81951D7FF38600DD8AE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		378A819E1D7FF98C00DD8AE7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		378A819F1D7FF98C00DD8AE7 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
-		378A81A31D803C4C00DD8AE7 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		378A81A41D803C4C00DD8AE7 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +61,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10353CD51DCF3D1000A74914 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				10353CD61DCF3D1000A74914 /* Root */,
+				10353CD91DCF3D1000A74914 /* SearchView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		10353CD61DCF3D1000A74914 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				10353CD71DCF3D1000A74914 /* ViewController.swift */,
+				10353CD81DCF3D1000A74914 /* ViewController.xib */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		10353CD91DCF3D1000A74914 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				10353CDA1DCF3D1000A74914 /* SearchViewController.swift */,
+				10353CDB1DCF3D1000A74914 /* SearchViewController.xib */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
 		1079DCB81DCDBB0600A50781 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,32 +117,13 @@
 		378A81881D7FF38600DD8AE7 /* ParisParking */ = {
 			isa = PBXGroup;
 			children = (
-				378A819D1D7FF98C00DD8AE7 /* Root */,
-				378A81A21D803C2400DD8AE7 /* SearchView */,
+				10353CD51DCF3D1000A74914 /* Views */,
 				378A81891D7FF38600DD8AE7 /* AppDelegate.swift */,
 				378A81901D7FF38600DD8AE7 /* Assets.xcassets */,
 				378A81921D7FF38600DD8AE7 /* LaunchScreen.storyboard */,
 				378A81951D7FF38600DD8AE7 /* Info.plist */,
 			);
 			path = ParisParking;
-			sourceTree = "<group>";
-		};
-		378A819D1D7FF98C00DD8AE7 /* Root */ = {
-			isa = PBXGroup;
-			children = (
-				378A819E1D7FF98C00DD8AE7 /* ViewController.swift */,
-				378A819F1D7FF98C00DD8AE7 /* ViewController.xib */,
-			);
-			path = Root;
-			sourceTree = "<group>";
-		};
-		378A81A21D803C2400DD8AE7 /* SearchView */ = {
-			isa = PBXGroup;
-			children = (
-				378A81A31D803C4C00DD8AE7 /* SearchViewController.swift */,
-				378A81A41D803C4C00DD8AE7 /* SearchViewController.xib */,
-			);
-			path = SearchView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,8 +188,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				378A81941D7FF38600DD8AE7 /* LaunchScreen.storyboard in Resources */,
-				378A81A11D7FF98C00DD8AE7 /* ViewController.xib in Resources */,
-				378A81A61D803C4C00DD8AE7 /* SearchViewController.xib in Resources */,
+				10353CDD1DCF3D1000A74914 /* ViewController.xib in Resources */,
+				10353CDF1DCF3D1000A74914 /* SearchViewController.xib in Resources */,
 				378A81911D7FF38600DD8AE7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,8 +201,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				378A81A51D803C4C00DD8AE7 /* SearchViewController.swift in Sources */,
-				378A81A01D7FF98C00DD8AE7 /* ViewController.swift in Sources */,
+				10353CDE1DCF3D1000A74914 /* SearchViewController.swift in Sources */,
+				10353CDC1DCF3D1000A74914 /* ViewController.swift in Sources */,
 				378A818A1D7FF38600DD8AE7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
