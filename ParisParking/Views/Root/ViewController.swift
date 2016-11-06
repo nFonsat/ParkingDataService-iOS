@@ -16,10 +16,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     var locationManager: CLLocationManager!
     
+    var geoService:GeoPointService!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mapViewInit()
+        
+        self.geoService = GeoPointService.shared;
         
         /*
         let template = "http://tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -59,11 +63,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         locationManager.startUpdatingHeading()
     }
     
-    /*
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        print("present location : (newLocation.coordinate.latitude), (newLocation.coordinate.longitude)")
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            let lat = location.coordinate.latitude;
+            let lng = location.coordinate.longitude;
+            print("location : \(lat), \(lng)");
+
+            self.geoService.parkings(coord: location.coordinate).responseJSON { response in
+                if let JSON = response.result.value {
+                    print("JSON: \(JSON)")
+                }
+            }
+        }
+        
     }
-    */
     
     func mapViewInit() {
         coreLocationInit()

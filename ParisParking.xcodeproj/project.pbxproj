@@ -11,6 +11,9 @@
 		10353CDD1DCF3D1000A74914 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10353CD81DCF3D1000A74914 /* ViewController.xib */; };
 		10353CDE1DCF3D1000A74914 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353CDA1DCF3D1000A74914 /* SearchViewController.swift */; };
 		10353CDF1DCF3D1000A74914 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10353CDB1DCF3D1000A74914 /* SearchViewController.xib */; };
+		10353CE21DCF405200A74914 /* GeoPointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353CE11DCF405200A74914 /* GeoPointService.swift */; };
+		10353CE41DCF4A0A00A74914 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10353CE31DCF4A0A00A74914 /* CoreLocation.framework */; };
+		10353CE61DCF4A1300A74914 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10353CE51DCF4A1300A74914 /* MapKit.framework */; };
 		1079DCBB1DCDBB0600A50781 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1079DCB91DCDBB0600A50781 /* Alamofire.framework */; };
 		1079DCBC1DCDBB0600A50781 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */; };
 		1079DCBE1DCDBB6700A50781 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1079DCB91DCDBB0600A50781 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -39,6 +42,9 @@
 		10353CD81DCF3D1000A74914 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		10353CDA1DCF3D1000A74914 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		10353CDB1DCF3D1000A74914 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		10353CE11DCF405200A74914 /* GeoPointService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoPointService.swift; sourceTree = "<group>"; };
+		10353CE31DCF4A0A00A74914 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		10353CE51DCF4A1300A74914 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1079DCB91DCDBB0600A50781 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		378A81861D7FF38600DD8AE7 /* ParisParking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParisParking.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10353CE61DCF4A1300A74914 /* MapKit.framework in Frameworks */,
+				10353CE41DCF4A0A00A74914 /* CoreLocation.framework in Frameworks */,
 				1079DCBB1DCDBB0600A50781 /* Alamofire.framework in Frameworks */,
 				1079DCBC1DCDBB0600A50781 /* SwiftyJSON.framework in Frameworks */,
 			);
@@ -88,9 +96,19 @@
 			path = SearchView;
 			sourceTree = "<group>";
 		};
+		10353CE01DCF403D00A74914 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				10353CE11DCF405200A74914 /* GeoPointService.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		1079DCB81DCDBB0600A50781 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				10353CE51DCF4A1300A74914 /* MapKit.framework */,
+				10353CE31DCF4A0A00A74914 /* CoreLocation.framework */,
 				1079DCB91DCDBB0600A50781 /* Alamofire.framework */,
 				1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */,
 			);
@@ -117,6 +135,7 @@
 		378A81881D7FF38600DD8AE7 /* ParisParking */ = {
 			isa = PBXGroup;
 			children = (
+				10353CE01DCF403D00A74914 /* Manager */,
 				10353CD51DCF3D1000A74914 /* Views */,
 				378A81891D7FF38600DD8AE7 /* AppDelegate.swift */,
 				378A81901D7FF38600DD8AE7 /* Assets.xcassets */,
@@ -203,6 +222,7 @@
 			files = (
 				10353CDE1DCF3D1000A74914 /* SearchViewController.swift in Sources */,
 				10353CDC1DCF3D1000A74914 /* ViewController.swift in Sources */,
+				10353CE21DCF405200A74914 /* GeoPointService.swift in Sources */,
 				378A818A1D7FF38600DD8AE7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,7 +334,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = ParisParking/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nicolas.paradise.fr.ParisParking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -333,7 +353,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = ParisParking/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nicolas.paradise.fr.ParisParking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
