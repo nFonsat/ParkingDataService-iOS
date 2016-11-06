@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import SwiftyJSON
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
@@ -17,6 +18,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     var locationManager: CLLocationManager!
     
     var geoService:GeoPointService!
+    
+    var hasDisplayPoint = false;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +38,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let searchItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(ViewController.goToSearchView))
         let filterItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(ViewController.filterModal))
         self.navigationItem.rightBarButtonItems = [searchItem, filterItem];
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        hasDisplayPoint = false;
     }
     
     func goToSearchView() {
@@ -64,15 +71,30 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if hasDisplayPoint {
+            return;
+        }
+
+        hasDisplayPoint = true;
         if let location = locations.last {
+            var parkings:[Parking] = []
             let lat = location.coordinate.latitude;
             let lng = location.coordinate.longitude;
             print("location : \(lat), \(lng)");
 
             self.geoService.parkings(coord: location.coordinate).responseJSON { response in
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
+                if let result = response.result.value {
+                    let jsonResult = JSON(result);
+                    for value in jsonResult.array! {
+                        parkings.append(ParkingFactory.getParkingFromJson(value.object as! [String : AnyObject]));
+                    }
                 }
+                print("parkings: \(parkings.count)");
+                DispatchQueue.main.async(execute: {
+                    self.mapView.removeAnnotations(self.mapView.annotations);
+                    self.mapView.addAnnotations(parkings);
+                    self.mapView.showAnnotations(parkings, animated: true);
+                })
             }
         }
         
