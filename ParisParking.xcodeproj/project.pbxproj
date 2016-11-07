@@ -20,6 +20,7 @@
 		1079DCBC1DCDBB0600A50781 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */; };
 		1079DCBE1DCDBB6700A50781 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1079DCB91DCDBB0600A50781 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1079DCBF1DCDBB6700A50781 /* SwiftyJSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10D3C8F31DD0BD9E000A9B87 /* MKMapViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3C8F21DD0BD9E000A9B87 /* MKMapViewExt.swift */; };
 		378A818A1D7FF38600DD8AE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A81891D7FF38600DD8AE7 /* AppDelegate.swift */; };
 		378A81911D7FF38600DD8AE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378A81901D7FF38600DD8AE7 /* Assets.xcassets */; };
 		378A81941D7FF38600DD8AE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378A81921D7FF38600DD8AE7 /* LaunchScreen.storyboard */; };
@@ -51,6 +52,7 @@
 		10353CED1DCF5AC300A74914 /* ParkingFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingFactory.swift; sourceTree = "<group>"; };
 		1079DCB91DCDBB0600A50781 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		10D3C8F21DD0BD9E000A9B87 /* MKMapViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExt.swift; sourceTree = "<group>"; };
 		378A81861D7FF38600DD8AE7 /* ParisParking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParisParking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		378A81891D7FF38600DD8AE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		378A81901D7FF38600DD8AE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				378A81901D7FF38600DD8AE7 /* Assets.xcassets */,
 				378A81921D7FF38600DD8AE7 /* LaunchScreen.storyboard */,
 				378A81951D7FF38600DD8AE7 /* Info.plist */,
+				10D3C8F21DD0BD9E000A9B87 /* MKMapViewExt.swift */,
 			);
 			path = ParisParking;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				10353CDC1DCF3D1000A74914 /* ViewController.swift in Sources */,
 				10353CEB1DCF581B00A74914 /* Parking.swift in Sources */,
 				10353CEE1DCF5AC300A74914 /* ParkingFactory.swift in Sources */,
+				10D3C8F31DD0BD9E000A9B87 /* MKMapViewExt.swift in Sources */,
 				10353CE21DCF405200A74914 /* GeoPointService.swift in Sources */,
 				378A818A1D7FF38600DD8AE7 /* AppDelegate.swift in Sources */,
 			);
