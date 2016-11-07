@@ -19,7 +19,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     var geoService:GeoPointService!
     
-    var hasDisplayPoint = false;
+    var hasFinishRendering = false;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        hasDisplayPoint = false;
+        hasFinishRendering = false;
     }
     
     func goToSearchView() {
@@ -50,7 +50,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     func filterModal() {
-        print("--goToSearchView")
+        print("--filterModal")
     }
     
     func coreLocationInit() {
@@ -70,34 +70,58 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         locationManager.startUpdatingHeading()
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if hasDisplayPoint {
-            return;
-        }
-
-        hasDisplayPoint = true;
-        if let location = locations.last {
-            var parkings:[Parking] = []
-            let lat = location.coordinate.latitude;
-            let lng = location.coordinate.longitude;
-            print("location : \(lat), \(lng)");
-
-            self.geoService.parkings(coord: location.coordinate).responseJSON { response in
-                if let result = response.result.value {
-                    let jsonResult = JSON(result);
-                    for value in jsonResult.array! {
-                        parkings.append(ParkingFactory.getParkingFromJson(value.object as! [String : AnyObject]));
-                    }
-                }
-                print("parkings: \(parkings.count)");
-                DispatchQueue.main.async(execute: {
-                    self.mapView.removeAnnotations(self.mapView.annotations);
-                    self.mapView.addAnnotations(parkings);
-                    self.mapView.showAnnotations(parkings, animated: true);
-                })
-            }
+    func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
+        hasFinishRendering = fullyRendered;
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        
+        if hasFinishRendering {
+            let bounds = self.mapView.getBoundingBox();
+            let top = bounds[0];
+            let bottom = bounds[1];
+            self.getParkings(bottom: bottom, top: top);
         }
         
+    }
+    
+    func getParkings(bottom: CLLocationCoordinate2D, top: CLLocationCoordinate2D) {
+        var parkings:[Parking] = []
+        
+        self.geoService.parkings(min: bottom, max: top).responseJSON { response in
+            if let result = response.result.value {
+                let jsonResult = JSON(result);
+                for value in jsonResult["result"].array! {
+                    parkings.append(ParkingFactory.getParkingFromJson(value.object as! [String : AnyObject]));
+                }
+            }
+            print("-- getParkings() : \(top.latitude);\(top.longitude) <=> \(bottom.latitude);\(bottom.longitude) -- \(parkings.count)");
+            DispatchQueue.main.async(execute: {
+                self.mapView.removeAnnotations(self.mapView.annotations);
+                self.mapView.addAnnotations(parkings);
+            })
+        }
+    }
+    
+    func getParkings(center: CLLocation) {
+        var parkings:[Parking] = []
+        let lat = center.coordinate.latitude;
+        let lng = center.coordinate.longitude;
+        
+        self.geoService.parkings(center: center.coordinate).responseJSON { response in
+            if let result = response.result.value {
+                let jsonResult = JSON(result);
+                for value in jsonResult["result"].array! {
+                    parkings.append(ParkingFactory.getParkingFromJson(value.object as! [String : AnyObject]));
+                }
+            }
+            print("-- getParkings() : \(lat), \(lng) -- \(parkings.count)");
+            DispatchQueue.main.async(execute: {
+                self.mapView.removeAnnotations(self.mapView.annotations);
+                self.mapView.addAnnotations(parkings);
+                self.mapView.showAnnotations(parkings, animated: true);
+            })
+        }
     }
     
     func mapViewInit() {
