@@ -44,7 +44,7 @@ class GeoPointService {
         let xMax = max.latitude;
         let yMax = max.longitude;
         
-        let limit = 1000;
+        let limit = 2000;
         
         let url = self.base.appending("/parking/bounds/\(xMin)/\(yMin)/\(xMax)/\(yMax)?limit=\(limit)");
         
