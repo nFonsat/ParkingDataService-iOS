@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10353CDC1DCF3D1000A74914 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353CD71DCF3D1000A74914 /* ViewController.swift */; };
-		10353CDD1DCF3D1000A74914 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10353CD81DCF3D1000A74914 /* ViewController.xib */; };
+		10353CDC1DCF3D1000A74914 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353CD71DCF3D1000A74914 /* MapViewController.swift */; };
+		10353CDD1DCF3D1000A74914 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10353CD81DCF3D1000A74914 /* MapViewController.xib */; };
 		10353CDE1DCF3D1000A74914 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353CDA1DCF3D1000A74914 /* SearchViewController.swift */; };
 		10353CDF1DCF3D1000A74914 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10353CDB1DCF3D1000A74914 /* SearchViewController.xib */; };
 		10353CE21DCF405200A74914 /* GeoPointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353CE11DCF405200A74914 /* GeoPointService.swift */; };
@@ -52,10 +52,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		10353CD71DCF3D1000A74914 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		10353CD81DCF3D1000A74914 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
-		10353CDA1DCF3D1000A74914 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		10353CDB1DCF3D1000A74914 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		10353CD71DCF3D1000A74914 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Root/MapViewController.swift; sourceTree = "<group>"; };
+		10353CD81DCF3D1000A74914 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = Root/MapViewController.xib; sourceTree = "<group>"; };
+		10353CDA1DCF3D1000A74914 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = SearchView/SearchViewController.swift; sourceTree = "<group>"; };
+		10353CDB1DCF3D1000A74914 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchViewController.xib; path = SearchView/SearchViewController.xib; sourceTree = "<group>"; };
 		10353CE11DCF405200A74914 /* GeoPointService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoPointService.swift; sourceTree = "<group>"; };
 		10353CE31DCF4A0A00A74914 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		10353CE51DCF4A1300A74914 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -100,28 +100,12 @@
 		10353CD51DCF3D1000A74914 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				10353CD61DCF3D1000A74914 /* Root */,
-				10353CD91DCF3D1000A74914 /* SearchView */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		10353CD61DCF3D1000A74914 /* Root */ = {
-			isa = PBXGroup;
-			children = (
-				10353CD71DCF3D1000A74914 /* ViewController.swift */,
-				10353CD81DCF3D1000A74914 /* ViewController.xib */,
-			);
-			path = Root;
-			sourceTree = "<group>";
-		};
-		10353CD91DCF3D1000A74914 /* SearchView */ = {
-			isa = PBXGroup;
-			children = (
+				10353CD71DCF3D1000A74914 /* MapViewController.swift */,
+				10353CD81DCF3D1000A74914 /* MapViewController.xib */,
 				10353CDA1DCF3D1000A74914 /* SearchViewController.swift */,
 				10353CDB1DCF3D1000A74914 /* SearchViewController.xib */,
 			);
-			path = SearchView;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		10353CE01DCF403D00A74914 /* Manager */ = {
@@ -273,7 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				378A81941D7FF38600DD8AE7 /* LaunchScreen.storyboard in Resources */,
-				10353CDD1DCF3D1000A74914 /* ViewController.xib in Resources */,
+				10353CDD1DCF3D1000A74914 /* MapViewController.xib in Resources */,
 				10353CDF1DCF3D1000A74914 /* SearchViewController.xib in Resources */,
 				378A81911D7FF38600DD8AE7 /* Assets.xcassets in Resources */,
 			);
@@ -295,7 +279,7 @@
 				104D05AA1DD203E8009B45B7 /* FBClusteringManager.swift in Sources */,
 				104D05A61DD203E8009B45B7 /* FBAnnotationClusterView.swift in Sources */,
 				10353CDE1DCF3D1000A74914 /* SearchViewController.swift in Sources */,
-				10353CDC1DCF3D1000A74914 /* ViewController.swift in Sources */,
+				10353CDC1DCF3D1000A74914 /* MapViewController.swift in Sources */,
 				104D05AC1DD203E8009B45B7 /* FBQuadTreeNode.swift in Sources */,
 				10353CEB1DCF581B00A74914 /* Parking.swift in Sources */,
 				104D05A91DD203E8009B45B7 /* FBBoundingBox.swift in Sources */,

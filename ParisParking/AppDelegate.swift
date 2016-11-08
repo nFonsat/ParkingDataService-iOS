@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let mainViewController = ViewController(nibName: "ViewController", bundle: nil)
+        let mainViewController = MapViewController(nibName: "MapViewController", bundle: nil)
         
         window?.rootViewController = UINavigationController(rootViewController: mainViewController)
         window?.makeKeyAndVisible()

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MapViewController.swift
 //  ParisParking
 //
 //  Created by Nicolas Fonsat on 07/09/2016.
@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 import SwiftyJSON
 
-class ViewController: UIViewController  {
+class MapViewController: UIViewController  {
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -38,8 +38,8 @@ class ViewController: UIViewController  {
         
         self.title = "Paris..."
         
-        let searchItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(ViewController.goToSearchView))
-        let filterItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(ViewController.filterModal))
+        let searchItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(MapViewController.goToSearchView))
+        let filterItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(MapViewController.filterModal))
         self.navigationItem.rightBarButtonItems = [searchItem, filterItem];
     }
     
@@ -57,7 +57,7 @@ class ViewController: UIViewController  {
     }
 }
 
-extension ViewController : CLLocationManagerDelegate {
+extension MapViewController : CLLocationManagerDelegate {
     func coreLocationInit() {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         locationManager.delegate = self;
@@ -75,14 +75,14 @@ extension ViewController : CLLocationManagerDelegate {
     }
 }
 
-extension ViewController : FBClusteringManagerDelegate {
+extension MapViewController : FBClusteringManagerDelegate {
     
     func cellSizeFactor(forCoordinator coordinator:FBClusteringManager) -> CGFloat {
         return 1.0
     }
 }
 
-extension ViewController : MKMapViewDelegate {
+extension MapViewController : MKMapViewDelegate {
     
     func getParkings(bottom: CLLocationCoordinate2D, top: CLLocationCoordinate2D) {
         var parkings:[Parking] = []
