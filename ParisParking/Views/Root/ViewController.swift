@@ -9,17 +9,27 @@
 import UIKit
 import MapKit
 import CoreLocation
+import SwiftyJSON
 
-class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class ViewController: UIViewController  {
 
     @IBOutlet weak var mapView: MKMapView!
     
-    var locationManager: CLLocationManager!
+    let clusteringManager = FBClusteringManager();
+    let configuration     = FBAnnotationClusterViewConfiguration.default();
+    
+    let locationManager: CLLocationManager = CLLocationManager();
+    
+    let geoService:GeoPointService = GeoPointService.shared;
+    
+    var hasFinishRendering = false;
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mapViewInit()
+        
+        clusteringManager.delegate = self;
         
         /*
         let template = "http://tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -33,17 +43,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         self.navigationItem.rightBarButtonItems = [searchItem, filterItem];
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        hasFinishRendering = false;
+    }
+    
     func goToSearchView() {
         let searchViewController = SearchViewController()
         self.navigationController?.pushViewController(searchViewController, animated: true)
     }
     
     func filterModal() {
-        print("--goToSearchView")
+        print("--filterModal")
     }
-    
+}
+
+extension ViewController : CLLocationManagerDelegate {
     func coreLocationInit() {
-        locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         locationManager.delegate = self;
         authorizationCoreLocation()
@@ -58,12 +73,46 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         locationManager.startUpdatingLocation()
         locationManager.startUpdatingHeading()
     }
+}
+
+extension ViewController : FBClusteringManagerDelegate {
     
-    /*
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        print("present location : (newLocation.coordinate.latitude), (newLocation.coordinate.longitude)")
+    func cellSizeFactor(forCoordinator coordinator:FBClusteringManager) -> CGFloat {
+        return 1.0
     }
-    */
+}
+
+extension ViewController : MKMapViewDelegate {
+    
+    func getParkings(bottom: CLLocationCoordinate2D, top: CLLocationCoordinate2D) {
+        var parkings:[Parking] = []
+        
+        self.geoService.parkings(min: bottom, max: top).responseJSON { response in
+            if let result = response.result.value {
+                let jsonResult = JSON(result);
+                for value in jsonResult["result"].array! {
+                    parkings.append(ParkingFactory.getParkingFromJson(value.object as! [String : AnyObject]));
+                }
+            }
+            print("-- getParkings() : \(top.latitude);\(top.longitude) <=> \(bottom.latitude);\(bottom.longitude) -- \(parkings.count)");
+            
+            DispatchQueue.main.async(execute: {
+                self.clusteringManager.removeAll();
+                self.clusteringManager.add(annotations: parkings);
+                DispatchQueue.global(qos: .userInitiated).async {
+                    let mapBoundsWidth = Double(self.mapView.bounds.size.width)
+                    let mapRectWidth = self.mapView.visibleMapRect.size.width
+                    let scale = mapBoundsWidth / mapRectWidth
+                    
+                    let annotationArray = self.clusteringManager.clusteredAnnotations(withinMapRect: self.mapView.visibleMapRect, zoomScale:scale)
+                    
+                    DispatchQueue.main.async {
+                        self.clusteringManager.display(annotations: annotationArray, onMapView:self.mapView)
+                    }
+                }
+            })
+        }
+    }
     
     func mapViewInit() {
         coreLocationInit()
@@ -78,7 +127,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         overlay.canReplaceMapContent = true
         
         mapView.add(overlay, level: .aboveLabels)
+    }
+    
+    func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
+        hasFinishRendering = fullyRendered;
+    }
+
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         
+        if hasFinishRendering {
+            let bounds = self.mapView.getBoundingBox();
+            let top = bounds[0];
+            let bottom = bounds[1];
+            self.getParkings(bottom: bottom, top: top);
+        }
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -87,6 +149,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
         
         return MKOverlayRenderer(overlay: overlay)
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        var reuseId = ""
+        
+        if annotation is FBAnnotationCluster {
+            
+            reuseId = "Cluster"
+            var clusterView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
+            if clusterView == nil {
+                clusterView = FBAnnotationClusterView(annotation: annotation, reuseIdentifier: reuseId, configuration: self.configuration)
+            } else {
+                clusterView?.annotation = annotation
+            }
+            
+            return clusterView
+            
+        }
+        
+        return nil;
     }
 }
 
