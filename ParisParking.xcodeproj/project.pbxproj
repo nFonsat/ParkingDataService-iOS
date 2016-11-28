@@ -23,10 +23,6 @@
 		104D05AB1DD203E8009B45B7 /* FBQuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D05A01DD203E8009B45B7 /* FBQuadTree.swift */; };
 		104D05AC1DD203E8009B45B7 /* FBQuadTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D05A11DD203E8009B45B7 /* FBQuadTreeNode.swift */; };
 		104D05AD1DD203E8009B45B7 /* FBZoomLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D05A21DD203E8009B45B7 /* FBZoomLevel.swift */; };
-		1079DCBB1DCDBB0600A50781 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1079DCB91DCDBB0600A50781 /* Alamofire.framework */; };
-		1079DCBC1DCDBB0600A50781 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */; };
-		1079DCBE1DCDBB6700A50781 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1079DCB91DCDBB0600A50781 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1079DCBF1DCDBB6700A50781 /* SwiftyJSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10D3C8F31DD0BD9E000A9B87 /* MKMapViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3C8F21DD0BD9E000A9B87 /* MKMapViewExt.swift */; };
 		10EF52AB1DE19F9000499D61 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF52A71DE19F9000499D61 /* MapViewController.swift */; };
 		10EF52AC1DE19F9000499D61 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10EF52A81DE19F9000499D61 /* MapViewController.xib */; };
@@ -35,21 +31,8 @@
 		378A818A1D7FF38600DD8AE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A81891D7FF38600DD8AE7 /* AppDelegate.swift */; };
 		378A81911D7FF38600DD8AE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378A81901D7FF38600DD8AE7 /* Assets.xcassets */; };
 		378A81941D7FF38600DD8AE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378A81921D7FF38600DD8AE7 /* LaunchScreen.storyboard */; };
+		867524FD94D3DAED6F0AA9BC /* Pods_ParisParking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 207850B91713CB210E2F4C1C /* Pods_ParisParking.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		1079DCBD1DCDBB4C00A50781 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				1079DCBE1DCDBB6700A50781 /* Alamofire.framework in CopyFiles */,
-				1079DCBF1DCDBB6700A50781 /* SwiftyJSON.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		10353CE11DCF405200A74914 /* GeoPointService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoPointService.swift; sourceTree = "<group>"; };
@@ -68,18 +51,19 @@
 		104D05A01DD203E8009B45B7 /* FBQuadTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBQuadTree.swift; sourceTree = "<group>"; };
 		104D05A11DD203E8009B45B7 /* FBQuadTreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBQuadTreeNode.swift; sourceTree = "<group>"; };
 		104D05A21DD203E8009B45B7 /* FBZoomLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBZoomLevel.swift; sourceTree = "<group>"; };
-		1079DCB91DCDBB0600A50781 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		10D3C8F21DD0BD9E000A9B87 /* MKMapViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExt.swift; sourceTree = "<group>"; };
 		10EF52A71DE19F9000499D61 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		10EF52A81DE19F9000499D61 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		10EF52A91DE19F9000499D61 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		10EF52AA1DE19F9000499D61 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		207850B91713CB210E2F4C1C /* Pods_ParisParking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParisParking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		378A81861D7FF38600DD8AE7 /* ParisParking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParisParking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		378A81891D7FF38600DD8AE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		378A81901D7FF38600DD8AE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		378A81931D7FF38600DD8AE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		378A81951D7FF38600DD8AE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65F5BC261A1E962DEA087FC0 /* Pods-ParisParking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParisParking.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParisParking/Pods-ParisParking.release.xcconfig"; sourceTree = "<group>"; };
+		75CF4488CB0285188501B0CF /* Pods-ParisParking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParisParking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParisParking/Pods-ParisParking.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +73,7 @@
 			files = (
 				10353CE61DCF4A1300A74914 /* MapKit.framework in Frameworks */,
 				10353CE41DCF4A0A00A74914 /* CoreLocation.framework in Frameworks */,
-				1079DCBB1DCDBB0600A50781 /* Alamofire.framework in Frameworks */,
-				1079DCBC1DCDBB0600A50781 /* SwiftyJSON.framework in Frameworks */,
+				867524FD94D3DAED6F0AA9BC /* Pods_ParisParking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,8 +127,7 @@
 			children = (
 				10353CE51DCF4A1300A74914 /* MapKit.framework */,
 				10353CE31DCF4A0A00A74914 /* CoreLocation.framework */,
-				1079DCB91DCDBB0600A50781 /* Alamofire.framework */,
-				1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */,
+				207850B91713CB210E2F4C1C /* Pods_ParisParking.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -161,6 +143,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		13BB08C66B939374CC21F25A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				75CF4488CB0285188501B0CF /* Pods-ParisParking.debug.xcconfig */,
+				65F5BC261A1E962DEA087FC0 /* Pods-ParisParking.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		378A817D1D7FF38600DD8AE7 = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +159,7 @@
 				378A81871D7FF38600DD8AE7 /* Products */,
 				1079DCB81DCDBB0600A50781 /* Frameworks */,
 				104D05971DD203E8009B45B7 /* FBAnnotationClustering */,
+				13BB08C66B939374CC21F25A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,10 +194,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 378A81981D7FF38600DD8AE7 /* Build configuration list for PBXNativeTarget "ParisParking" */;
 			buildPhases = (
+				ED374DD0EE19C4319AB0E93E /* [CP] Check Pods Manifest.lock */,
 				378A81821D7FF38600DD8AE7 /* Sources */,
 				378A81831D7FF38600DD8AE7 /* Frameworks */,
 				378A81841D7FF38600DD8AE7 /* Resources */,
-				1079DCBD1DCDBB4C00A50781 /* CopyFiles */,
+				55552E4F99190BD45AFFEB73 /* [CP] Embed Pods Frameworks */,
+				95FBF5CF5E92B66869B8BB0E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -265,6 +259,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		55552E4F99190BD45AFFEB73 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParisParking/Pods-ParisParking-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95FBF5CF5E92B66869B8BB0E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParisParking/Pods-ParisParking-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED374DD0EE19C4319AB0E93E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		378A81821D7FF38600DD8AE7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -319,8 +361,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -342,7 +386,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -364,8 +408,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -381,25 +427,25 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		378A81991D7FF38600DD8AE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75CF4488CB0285188501B0CF /* Pods-ParisParking.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = Q2G63B87TD;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ParisParking/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nicolas.paradise.fr.ParisParking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -410,16 +456,15 @@
 		};
 		378A819A1D7FF38600DD8AE7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65F5BC261A1E962DEA087FC0 /* Pods-ParisParking.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = Q2G63B87TD;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ParisParking/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nicolas.paradise.fr.ParisParking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
