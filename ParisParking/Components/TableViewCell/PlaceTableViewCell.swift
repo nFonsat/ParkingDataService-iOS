@@ -10,8 +10,18 @@ import UIKit
 
 class PlaceTableViewCell: UITableViewCell {
     
-    func setPlace(_ place: Parking) {
-        self.textLabel?.text = "TEST";
+    @IBOutlet weak var addrLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    
+    func setPlace(_ place: Place) {
+        self.addrLabel?.text = place.address;
+        if let distance = place.meters {
+            self.distanceLabel?.text = "\(distance)m";
+        }
+        else {
+            self.distanceLabel.isHidden = true;
+        }
+        
     }
     
 }
