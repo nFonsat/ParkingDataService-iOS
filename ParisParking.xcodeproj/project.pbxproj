@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		100B692B1DED94C000BCEC66 /* ParisParkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100B692A1DED94C000BCEC66 /* ParisParkingTests.swift */; };
 		10353CE21DCF405200A74914 /* GeoPointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353CE11DCF405200A74914 /* GeoPointService.swift */; };
 		10353CE41DCF4A0A00A74914 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10353CE31DCF4A0A00A74914 /* CoreLocation.framework */; };
 		10353CE61DCF4A1300A74914 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10353CE51DCF4A1300A74914 /* MapKit.framework */; };
@@ -37,6 +38,16 @@
 		378A81941D7FF38600DD8AE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378A81921D7FF38600DD8AE7 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		100B692D1DED94C000BCEC66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 378A817E1D7FF38600DD8AE7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 378A81851D7FF38600DD8AE7;
+			remoteInfo = ParisParking;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		1079DCBD1DCDBB4C00A50781 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -52,6 +63,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		100B69281DED94C000BCEC66 /* ParisParkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParisParkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		100B692A1DED94C000BCEC66 /* ParisParkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisParkingTests.swift; sourceTree = "<group>"; };
+		100B692C1DED94C000BCEC66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10353CE11DCF405200A74914 /* GeoPointService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoPointService.swift; sourceTree = "<group>"; };
 		10353CE31DCF4A0A00A74914 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		10353CE51DCF4A1300A74914 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -83,6 +97,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		100B69251DED94C000BCEC66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		378A81831D7FF38600DD8AE7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -97,6 +118,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		100B69291DED94C000BCEC66 /* ParisParkingTests */ = {
+			isa = PBXGroup;
+			children = (
+				100B692A1DED94C000BCEC66 /* ParisParkingTests.swift */,
+				100B692C1DED94C000BCEC66 /* Info.plist */,
+			);
+			path = ParisParkingTests;
+			sourceTree = "<group>";
+		};
 		10353CE01DCF403D00A74914 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				378A81881D7FF38600DD8AE7 /* ParisParking */,
+				100B69291DED94C000BCEC66 /* ParisParkingTests */,
 				378A81871D7FF38600DD8AE7 /* Products */,
 				1079DCB81DCDBB0600A50781 /* Frameworks */,
 				104D05971DD203E8009B45B7 /* FBAnnotationClustering */,
@@ -175,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				378A81861D7FF38600DD8AE7 /* ParisParking.app */,
+				100B69281DED94C000BCEC66 /* ParisParkingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,6 +230,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		100B69271DED94C000BCEC66 /* ParisParkingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 100B69311DED94C100BCEC66 /* Build configuration list for PBXNativeTarget "ParisParkingTests" */;
+			buildPhases = (
+				100B69241DED94C000BCEC66 /* Sources */,
+				100B69251DED94C000BCEC66 /* Frameworks */,
+				100B69261DED94C000BCEC66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				100B692E1DED94C000BCEC66 /* PBXTargetDependency */,
+			);
+			name = ParisParkingTests;
+			productName = ParisParkingTests;
+			productReference = 100B69281DED94C000BCEC66 /* ParisParkingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		378A81851D7FF38600DD8AE7 /* ParisParking */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 378A81981D7FF38600DD8AE7 /* Build configuration list for PBXNativeTarget "ParisParking" */;
@@ -222,10 +272,15 @@
 		378A817E1D7FF38600DD8AE7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Nicolas Fonsat";
 				TargetAttributes = {
+					100B69271DED94C000BCEC66 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 378A81851D7FF38600DD8AE7;
+					};
 					378A81851D7FF38600DD8AE7 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = Q2G63B87TD;
@@ -247,11 +302,19 @@
 			projectRoot = "";
 			targets = (
 				378A81851D7FF38600DD8AE7 /* ParisParking */,
+				100B69271DED94C000BCEC66 /* ParisParkingTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		100B69261DED94C000BCEC66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		378A81841D7FF38600DD8AE7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -266,6 +329,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		100B69241DED94C000BCEC66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				100B692B1DED94C000BCEC66 /* ParisParkingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		378A81821D7FF38600DD8AE7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -293,6 +364,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		100B692E1DED94C000BCEC66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 378A81851D7FF38600DD8AE7 /* ParisParking */;
+			targetProxy = 100B692D1DED94C000BCEC66 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		378A81921D7FF38600DD8AE7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -305,6 +384,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		100B692F1DED94C100BCEC66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = ParisParkingTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nicolas.paradise.fr.ParisParkingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParisParking.app/ParisParking";
+			};
+			name = Debug;
+		};
+		100B69301DED94C100BCEC66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = ParisParkingTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nicolas.paradise.fr.ParisParkingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParisParking.app/ParisParking";
+			};
+			name = Release;
+		};
 		378A81961D7FF38600DD8AE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -431,6 +548,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		100B69311DED94C100BCEC66 /* Build configuration list for PBXNativeTarget "ParisParkingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				100B692F1DED94C100BCEC66 /* Debug */,
+				100B69301DED94C100BCEC66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		378A81811D7FF38600DD8AE7 /* Build configuration list for PBXProject "ParisParking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

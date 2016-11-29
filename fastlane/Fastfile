@@ -1,0 +1,9 @@
+lane :parking_data_service do
+  UI.success "Cool c'est bon !"
+  scan(
+    project: "ParisParking.xcodeproj",
+    scheme: "ParisParking",
+    code_coverage: true
+  )
+  xcov()
+end
