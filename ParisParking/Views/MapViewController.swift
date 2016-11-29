@@ -13,7 +13,7 @@ import SwiftyJSON
 
 class MapViewController: UIViewController  {
     
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var placeMapView: MKMapView!
     @IBOutlet weak var placeTableView: UITableView!
     
     let cellId: String = "PlaceCell";
@@ -56,7 +56,7 @@ class MapViewController: UIViewController  {
     func alertForParking(_ parking: Parking) {
         let alertCtrl:UIAlertController = UIAlertController(title: "Choose", message: "Choose your action ?", preferredStyle: .actionSheet);
         alertCtrl.addAction(UIAlertAction(title: "GO", style: .default, handler: { (action) in
-            self.mapView.showAnnotations([parking, self.mapView.userLocation], animated: true);
+            self.placeMapView.showAnnotations([parking, self.placeMapView.userLocation], animated: true);
             self.goToPlace(parking);
         }));
         alertCtrl.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil));
@@ -124,14 +124,14 @@ extension MapViewController : MKMapViewDelegate {
                 self.clusteringManager.add(annotations: parkings);
                 self.placeTableView.reloadData();
                 DispatchQueue.global(qos: .userInitiated).async {
-                    let mapBoundsWidth = Double(self.mapView.bounds.size.width)
-                    let mapRectWidth = self.mapView.visibleMapRect.size.width
+                    let mapBoundsWidth = Double(self.placeMapView.bounds.size.width)
+                    let mapRectWidth = self.placeMapView.visibleMapRect.size.width
                     let scale = mapBoundsWidth / mapRectWidth
                     
-                    let annotationArray = self.clusteringManager.clusteredAnnotations(withinMapRect: self.mapView.visibleMapRect, zoomScale:scale)
+                    let annotationArray = self.clusteringManager.clusteredAnnotations(withinMapRect: self.placeMapView.visibleMapRect, zoomScale:scale)
                     
                     DispatchQueue.main.async {
-                        self.clusteringManager.display(annotations: annotationArray, onMapView:self.mapView)
+                        self.clusteringManager.display(annotations: annotationArray, onMapView:self.placeMapView)
                     }
                 }
             })
@@ -140,22 +140,22 @@ extension MapViewController : MKMapViewDelegate {
     
     func mapViewInit() {
         coreLocationInit()
-        mapView.delegate = self
-        mapView.showsUserLocation = true
-        mapView.mapType = MKMapType(rawValue: 0)!
-        mapView.userTrackingMode = MKUserTrackingMode(rawValue: 2)!
+        self.placeMapView.delegate = self
+        self.placeMapView.showsUserLocation = true
+        self.placeMapView.mapType = MKMapType(rawValue: 0)!
+        self.placeMapView.userTrackingMode = MKUserTrackingMode(rawValue: 2)!
     }
     
     func mapViewTemplate(_ template: String) {
         let overlay  = MKTileOverlay(urlTemplate: template)
         overlay.canReplaceMapContent = true
         
-        mapView.add(overlay, level: .aboveLabels)
+        self.placeMapView.add(overlay, level: .aboveLabels)
     }
     
     func zoomOnMap(_ location: CLLocationCoordinate2D, meters: Double) {
         let region:MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(location, meters, meters);
-        self.mapView.setRegion(region, animated: true);
+        self.placeMapView.setRegion(region, animated: true);
     }
     
     func goToPlace(_ place:Parking) {
@@ -181,8 +181,8 @@ extension MapViewController : MKMapViewDelegate {
             else if response != nil {
                 let details:MKRoute = (response?.routes.last)!;
                 
-                self.mapView.removeOverlays(self.mapView.overlays);
-                self.mapView.add(details.polyline);
+                self.placeMapView.removeOverlays(self.placeMapView.overlays);
+                self.placeMapView.add(details.polyline);
                 
                 for step:MKRouteStep in details.steps {
                     print("\(step.instructions) -- \(step.distance)");
@@ -198,10 +198,10 @@ extension MapViewController : MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         
         if hasFinishRendering {
-            let bounds = self.mapView.getBoundingBox();
+            let bounds = self.placeMapView.getBoundingBox();
             let top = bounds[0];
             let bottom = bounds[1];
-            let userLoc = self.mapView.userLocation;
+            let userLoc = self.placeMapView.userLocation;
             self.getParkings(bottom: bottom, top: top, center: userLoc.coordinate);
         }
     }
