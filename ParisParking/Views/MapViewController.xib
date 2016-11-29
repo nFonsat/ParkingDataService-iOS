@@ -9,31 +9,49 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="ParisParking" customModuleProvider="target">
             <connections>
                 <outlet property="placeMapView" destination="djR-ef-kNO" id="mP1-aY-eOe"/>
+                <outlet property="placeSearchBar" destination="Lpj-dl-Kdp" id="z7P-oQ-rPq"/>
                 <outlet property="placeTableView" destination="NEt-jr-Dy3" id="4GP-iT-Ap9"/>
                 <outlet property="view" destination="iN0-l3-epB" id="8xO-Di-FJb"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="djR-ef-kNO"/>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Lpj-dl-Kdp">
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NEt-jr-Dy3">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJo-BR-lDj">
+                    <items>
+                        <barButtonItem title="Parking" id="nSY-9y-5q3"/>
+                        <barButtonItem title="Carburant" id="LPn-kN-ccE"/>
+                        <barButtonItem title="Electrique" id="X0w-Ab-fCE"/>
+                        <barButtonItem title="Accident" id="WcK-Pf-vbc"/>
+                    </items>
+                </toolbar>
             </subviews>
             <constraints>
                 <constraint firstItem="djR-ef-kNO" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.6" id="2rK-Wf-Non"/>
                 <constraint firstItem="djR-ef-kNO" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="3B5-TL-nT8"/>
                 <constraint firstAttribute="trailing" secondItem="NEt-jr-Dy3" secondAttribute="trailing" id="78H-YZ-ZgR"/>
+                <constraint firstAttribute="trailing" secondItem="ZJo-BR-lDj" secondAttribute="trailing" id="9P3-F4-svB"/>
+                <constraint firstItem="Lpj-dl-Kdp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Aa6-Tf-TYD"/>
+                <constraint firstAttribute="bottom" secondItem="ZJo-BR-lDj" secondAttribute="bottom" id="BtQ-7F-JmU"/>
                 <constraint firstItem="djR-ef-kNO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Vqq-5C-pHU"/>
-                <constraint firstAttribute="bottom" secondItem="NEt-jr-Dy3" secondAttribute="bottom" id="at9-q7-8OL"/>
                 <constraint firstItem="djR-ef-kNO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cZk-t4-ycy"/>
+                <constraint firstItem="Lpj-dl-Kdp" firstAttribute="width" secondItem="djR-ef-kNO" secondAttribute="width" multiplier="0.8" id="fNM-Op-pPX"/>
                 <constraint firstItem="NEt-jr-Dy3" firstAttribute="top" secondItem="djR-ef-kNO" secondAttribute="bottom" id="mWz-bF-OEX"/>
                 <constraint firstItem="NEt-jr-Dy3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uIc-c7-FSB"/>
+                <constraint firstItem="Lpj-dl-Kdp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="wI6-ww-BSn"/>
+                <constraint firstItem="ZJo-BR-lDj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xFg-vd-nVH"/>
+                <constraint firstItem="ZJo-BR-lDj" firstAttribute="top" secondItem="NEt-jr-Dy3" secondAttribute="bottom" id="xLC-jc-tZL"/>
             </constraints>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <nil key="simulatedTopBarMetrics"/>
             <point key="canvasLocation" x="537.5" y="268.5"/>
         </view>
     </objects>
