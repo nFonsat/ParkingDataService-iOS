@@ -34,7 +34,7 @@ class MapViewController: DefaultViewController  {
         super.viewDidLoad()
         
         initTableView();
-        mapViewInit();
+        initMapView();
         initSearchBar();
         
         self.navigationController?.navigationBar.isHidden = true;
@@ -141,7 +141,7 @@ extension MapViewController : MKMapViewDelegate {
         }
     }
     
-    func mapViewInit() {
+    func initMapView() {
         coreLocationInit()
         self.placeMapView.delegate = self
         self.placeMapView.showsUserLocation = true
