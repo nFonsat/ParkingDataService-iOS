@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		100B69221DED8DDA00BCEC66 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100B69201DED8DDA00BCEC66 /* PlaceTableViewCell.swift */; };
+		100B69231DED8DDA00BCEC66 /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 100B69211DED8DDA00BCEC66 /* PlaceTableViewCell.xib */; };
 		10353CE21DCF405200A74914 /* GeoPointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353CE11DCF405200A74914 /* GeoPointService.swift */; };
 		10353CE41DCF4A0A00A74914 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10353CE31DCF4A0A00A74914 /* CoreLocation.framework */; };
 		10353CE61DCF4A1300A74914 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10353CE51DCF4A1300A74914 /* MapKit.framework */; };
@@ -52,6 +54,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		100B69201DED8DDA00BCEC66 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
+		100B69211DED8DDA00BCEC66 /* PlaceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceTableViewCell.xib; sourceTree = "<group>"; };
 		10353CE11DCF405200A74914 /* GeoPointService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoPointService.swift; sourceTree = "<group>"; };
 		10353CE31DCF4A0A00A74914 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		10353CE51DCF4A1300A74914 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -97,6 +101,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		100B691E1DED8DB300BCEC66 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				100B691F1DED8DB300BCEC66 /* TableViewCell */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		100B691F1DED8DB300BCEC66 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				100B69201DED8DDA00BCEC66 /* PlaceTableViewCell.swift */,
+				100B69211DED8DDA00BCEC66 /* PlaceTableViewCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		10353CE01DCF403D00A74914 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,9 +203,10 @@
 		378A81881D7FF38600DD8AE7 /* ParisParking */ = {
 			isa = PBXGroup;
 			children = (
+				100B691E1DED8DB300BCEC66 /* Components */,
+				10353CEC1DCF5A1000A74914 /* Factory */,
 				10353CE01DCF403D00A74914 /* Manager */,
 				10353CE91DCF57E500A74914 /* Models */,
-				10353CEC1DCF5A1000A74914 /* Factory */,
 				10EF52A61DE19F9000499D61 /* Views */,
 				378A81891D7FF38600DD8AE7 /* AppDelegate.swift */,
 				378A81901D7FF38600DD8AE7 /* Assets.xcassets */,
@@ -259,6 +281,7 @@
 				378A81941D7FF38600DD8AE7 /* LaunchScreen.storyboard in Resources */,
 				10EF52AC1DE19F9000499D61 /* MapViewController.xib in Resources */,
 				10EF52AE1DE19F9000499D61 /* SearchViewController.xib in Resources */,
+				100B69231DED8DDA00BCEC66 /* PlaceTableViewCell.xib in Resources */,
 				378A81911D7FF38600DD8AE7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +297,7 @@
 				104D05A71DD203E8009B45B7 /* FBAnnotationClusterViewConfiguration.swift in Sources */,
 				104D05A81DD203E8009B45B7 /* FBBoundingBox+MapKit.swift in Sources */,
 				104D05A51DD203E8009B45B7 /* FBAnnotationClusterTemplate.swift in Sources */,
+				100B69221DED8DDA00BCEC66 /* PlaceTableViewCell.swift in Sources */,
 				104D05A31DD203E8009B45B7 /* FBAnnotation.swift in Sources */,
 				104D05AD1DD203E8009B45B7 /* FBZoomLevel.swift in Sources */,
 				104D05AA1DD203E8009B45B7 /* FBClusteringManager.swift in Sources */,
