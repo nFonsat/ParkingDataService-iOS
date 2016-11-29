@@ -23,30 +23,19 @@ class GeoPointService {
         return instance;
     }()
     
-    
-    func parkings(center:CLLocationCoordinate2D) -> DataRequest {
-        let lat = center.latitude;
-        let lng = center.longitude;
-        let distance = 5;
-        let limit = 20;
-        
-        let url = self.base.appending("/parking/position/\(lat)/\(lng)?distance=\(distance)&limit=\(limit)");
-        
-        print("New request : \(url)");
-        return Alamofire.request(url);
-    }
-    
-    
-    func parkings(min:CLLocationCoordinate2D, max:CLLocationCoordinate2D) -> DataRequest {
+    func parkings(min:CLLocationCoordinate2D, max:CLLocationCoordinate2D, center:CLLocationCoordinate2D) -> DataRequest {
         let xMin = min.latitude;
         let yMin = min.longitude;
         
         let xMax = max.latitude;
         let yMax = max.longitude;
         
+        let xCenter = center.latitude;
+        let yCenter = center.longitude;
+        
         let limit = 2000;
         
-        let url = self.base.appending("/parking/bounds/\(xMin)/\(yMin)/\(xMax)/\(yMax)?limit=\(limit)");
+        let url = self.base.appending("/parking/bounds/\(xMin)/\(yMin)/\(xMax)/\(yMax)?limit=\(limit)&center=\(xCenter);\(yCenter)");
         
         print("New request : \(url)");
         return Alamofire.request(url);
