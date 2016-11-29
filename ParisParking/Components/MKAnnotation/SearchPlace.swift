@@ -7,7 +7,10 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SearchPlace: Place {
-
+    init(_ address:String, coord:CLLocationCoordinate2D) {
+        super.init("Unknown", address: address, coord: coord);
+    }
 }
