@@ -10,23 +10,10 @@ import Foundation
 import MapKit
 import CoreLocation
 
-class Parking : NSObject, MKAnnotation {
-    
-    let idApi: String;
-    let coordinate: CLLocationCoordinate2D;
-    
-    var nbPlace: Int!;
-    var type: String!;
-    var regime: String!;
-    var stationnement: String!;
-    
-    init(id: String, coord:CLLocationCoordinate2D) {
-        self.idApi = id;
-        self.coordinate = coord;
-        super.init();
-    }
-    
-    var title: String? {
-        return self.idApi
-    }
+class Parking : Place {
+    var name: String?
+    var isParc: Bool!
+    var typeParking: String?
+    var typeStationnement: String?
+    var posStationnement: String?
 }
