@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 import SwiftyJSON
 
-class MapViewController: UIViewController  {
+class MapViewController: DefaultViewController  {
     
     @IBOutlet weak var placeMapView: MKMapView!
     @IBOutlet weak var placeTableView: UITableView!
@@ -35,18 +35,14 @@ class MapViewController: UIViewController  {
         initTableView()
         mapViewInit()
         
+        self.navigationController?.navigationBar.isHidden = true;
+        
         clusteringManager.delegate = self;
         
         /*
          let template = "http://tile.openstreetmap.org/{z}/{x}/{y}.png"
          self.mapViewTemplate(template)
          */
-        
-        self.title = "Paris..."
-        
-        let searchItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(MapViewController.goToSearchView))
-        let filterItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(MapViewController.filterModal))
-        self.navigationItem.rightBarButtonItems = [searchItem, filterItem];
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,15 +57,6 @@ class MapViewController: UIViewController  {
         }));
         alertCtrl.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil));
         self.present(alertCtrl, animated: true, completion: nil);
-    }
-    
-    func goToSearchView() {
-        let searchViewController = SearchViewController()
-        self.navigationController?.pushViewController(searchViewController, animated: true)
-    }
-    
-    func filterModal() {
-        print("--filterModal")
     }
 }
 
@@ -271,7 +258,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70;
+        return 60;
     }
     
 }
