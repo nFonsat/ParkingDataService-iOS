@@ -15,6 +15,7 @@ class MapViewController: DefaultViewController  {
     
     @IBOutlet weak var placeMapView: MKMapView!
     @IBOutlet weak var placeTableView: UITableView!
+    @IBOutlet weak var placeSearchBar: UISearchBar!
     
     let cellId: String = "PlaceCell";
     
@@ -32,17 +33,13 @@ class MapViewController: DefaultViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initTableView()
-        mapViewInit()
+        initTableView();
+        mapViewInit();
+        initSearchBar();
         
         self.navigationController?.navigationBar.isHidden = true;
         
         clusteringManager.delegate = self;
-        
-        /*
-         let template = "http://tile.openstreetmap.org/{z}/{x}/{y}.png"
-         self.mapViewTemplate(template)
-         */
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +72,25 @@ extension MapViewController : CLLocationManagerDelegate {
         }
         locationManager.startUpdatingLocation()
         locationManager.startUpdatingHeading()
+    }
+    
+    func findAddress(_ address: String) {
+        let geocoder:CLGeocoder =  CLGeocoder();
+        geocoder.geocodeAddressString(address) { (placemarks, error) in
+            if let msg = error {
+                print(msg.localizedDescription);
+            }
+            else if let places = placemarks, let place:CLPlacemark = places.last, let location:CLLocation = place.location {
+                let coordinate:CLLocationCoordinate2D = location.coordinate;
+                print("Place found = \(place.name) => \(coordinate.latitude);\(coordinate.longitude)");
+                let place:SearchPlace = SearchPlace(place.name!, coord: coordinate);
+                self.placeMapView.addAnnotation(place);
+                self.zoomOnMap(coordinate, meters: 50);
+            }
+            else {
+                print("No place found");
+            }
+        }
     }
 }
 
@@ -131,6 +147,9 @@ extension MapViewController : MKMapViewDelegate {
         self.placeMapView.showsUserLocation = true
         self.placeMapView.mapType = MKMapType(rawValue: 0)!
         self.placeMapView.userTrackingMode = MKUserTrackingMode(rawValue: 2)!
+        
+        let template = "http://tile.openstreetmap.org/{z}/{x}/{y}.png";
+        self.mapViewTemplate(template);
     }
     
     func mapViewTemplate(_ template: String) {
@@ -259,6 +278,22 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60;
+    }
+    
+}
+
+extension MapViewController: UISearchBarDelegate {
+    
+    func initSearchBar() {
+        self.placeSearchBar.delegate = self;
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let text:String = searchBar.text {
+            self.findAddress(text);
+        } else {
+            print("Nothing");
+        }
     }
     
 }
