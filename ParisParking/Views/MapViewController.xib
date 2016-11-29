@@ -8,6 +8,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="ParisParking" customModuleProvider="target">
             <connections>
+                <outlet property="accidentBtn" destination="1bx-nO-WyT" id="zkW-V2-ba3"/>
+                <outlet property="electricBtn" destination="IBt-CU-pc9" id="bD4-3i-Oid"/>
+                <outlet property="fuelBtn" destination="LMB-6e-GXN" id="i5C-3i-r9w"/>
+                <outlet property="parkingBtn" destination="uNu-v8-9oA" id="yfb-ak-MN3"/>
                 <outlet property="placeMapView" destination="djR-ef-kNO" id="mP1-aY-eOe"/>
                 <outlet property="placeSearchBar" destination="Lpj-dl-Kdp" id="z7P-oQ-rPq"/>
                 <outlet property="placeTableView" destination="NEt-jr-Dy3" id="4GP-iT-Ap9"/>
@@ -28,10 +32,46 @@
                 </tableView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJo-BR-lDj">
                     <items>
-                        <barButtonItem title="Parking" id="nSY-9y-5q3"/>
-                        <barButtonItem title="Carburant" id="LPn-kN-ccE"/>
-                        <barButtonItem title="Electrique" id="X0w-Ab-fCE"/>
-                        <barButtonItem title="Accident" id="WcK-Pf-vbc"/>
+                        <barButtonItem style="plain" id="lTp-9v-kCE">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uNu-v8-9oA">
+                                <rect key="frame" x="16" y="7" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Parking"/>
+                                <connections>
+                                    <action selector="displayOnMapAction:" destination="-1" eventType="touchUpInside" id="sxc-bj-aZI"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem style="plain" id="gIJ-oT-Foe">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LMB-6e-GXN">
+                                <rect key="frame" x="78" y="7" width="79" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Carburant"/>
+                                <connections>
+                                    <action selector="displayOnMapAction:" destination="-1" eventType="touchUpInside" id="PFl-Bj-g3a"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem style="plain" id="1Xw-xn-Git">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IBt-CU-pc9">
+                                <rect key="frame" x="167" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Electrique"/>
+                                <connections>
+                                    <action selector="displayOnMapAction:" destination="-1" eventType="touchUpInside" id="wJQ-ox-UAa"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem style="plain" id="9qs-3X-qlR">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1bx-nO-WyT">
+                                <rect key="frame" x="260" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Accident"/>
+                                <connections>
+                                    <action selector="displayOnMapAction:" destination="-1" eventType="touchUpInside" id="u2k-qB-EMi"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </items>
                 </toolbar>
             </subviews>

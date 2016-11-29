@@ -17,6 +17,11 @@ class MapViewController: DefaultViewController  {
     @IBOutlet weak var placeTableView: UITableView!
     @IBOutlet weak var placeSearchBar: UISearchBar!
     
+    @IBOutlet weak var parkingBtn: UIButton!
+    @IBOutlet weak var fuelBtn: UIButton!
+    @IBOutlet weak var electricBtn: UIButton!
+    @IBOutlet weak var accidentBtn: UIButton!
+    
     let cellId: String = "PlaceCell";
     
     let clusteringManager = FBClusteringManager();
@@ -28,6 +33,7 @@ class MapViewController: DefaultViewController  {
     
     var hasFinishRendering = false;
     
+    var annotationsParking:[Parking] = [];
     var places:[Parking] = [];
     
     override func viewDidLoad() {
@@ -39,11 +45,22 @@ class MapViewController: DefaultViewController  {
         
         self.navigationController?.navigationBar.isHidden = true;
         
+        self.parkingBtn.isSelected = true;
+        self.fuelBtn.isSelected = false;
+        self.electricBtn.isSelected = false;
+        self.accidentBtn.isSelected = false;
+        
         clusteringManager.delegate = self;
     }
     
     override func viewWillAppear(_ animated: Bool) {
         hasFinishRendering = false;
+        self.updateMapView();
+    }
+    
+    @IBAction func displayOnMapAction(_ sender: UIButton) {
+        sender.isSelected = !(sender.isSelected);
+        self.updateMapView();
     }
     
     func alertForParking(_ parking: Parking) {
@@ -104,27 +121,27 @@ extension MapViewController : FBClusteringManagerDelegate {
 extension MapViewController : MKMapViewDelegate {
     
     func getParkings(bottom: CLLocationCoordinate2D, top: CLLocationCoordinate2D,  center: CLLocationCoordinate2D) {
-        var parkings:[Parking] = []
         
         self.geoService.parkings(min: bottom, max: top, center: center).responseJSON { response in
             var count = 0;
+            self.annotationsParking.removeAll();
             self.places.removeAll();
             if let result = response.result.value {
                 let jsonResult = JSON(result);
                 for value in jsonResult["result"].array! {
                     let parking:Parking = ParkingFactory.getParkingFromJson(value.object as! [String : AnyObject]);
-                    parkings.append(parking);
+                    self.annotationsParking.append(parking);
                     if count < 10 {
                         self.places.append(parking);
                         count+=1;
                     }
                 }
             }
-            print("-- getParkings() : \(top.latitude);\(top.longitude) <=> \(bottom.latitude);\(bottom.longitude) -- \(parkings.count)");
+            print("-- getParkings() : \(top.latitude);\(top.longitude) <=> \(bottom.latitude);\(bottom.longitude) -- \(self.annotationsParking.count)");
             
             DispatchQueue.main.async(execute: {
                 self.clusteringManager.removeAll();
-                self.clusteringManager.add(annotations: parkings);
+                self.clusteringManager.add(annotations: self.annotationsParking);
                 self.placeTableView.reloadData();
                 DispatchQueue.global(qos: .userInitiated).async {
                     let mapBoundsWidth = Double(self.placeMapView.bounds.size.width)
@@ -148,8 +165,57 @@ extension MapViewController : MKMapViewDelegate {
         self.placeMapView.mapType = MKMapType(rawValue: 0)!
         self.placeMapView.userTrackingMode = MKUserTrackingMode(rawValue: 2)!
         
-        let template = "http://tile.openstreetmap.org/{z}/{x}/{y}.png";
-        self.mapViewTemplate(template);
+        /*let template = "http://tile.openstreetmap.org/{z}/{x}/{y}.png";
+        self.mapViewTemplate(template);*/
+    }
+    
+    func updateMapView() {
+        if hasFinishRendering {
+            let bounds = self.placeMapView.getBoundingBox();
+            let top = bounds[0];
+            let bottom = bounds[1];
+            let userLoc = self.placeMapView.userLocation;
+            
+            if self.parkingBtn.isSelected {
+                self.getParkings(bottom: bottom, top: top, center: userLoc.coordinate);
+            }
+            else {
+                self.annotationsParking.removeAll();
+                self.clusteringManager.removeAll();
+                DispatchQueue.global(qos: .userInitiated).async {
+                    let mapBoundsWidth = Double(self.placeMapView.bounds.size.width)
+                    let mapRectWidth = self.placeMapView.visibleMapRect.size.width
+                    let scale = mapBoundsWidth / mapRectWidth
+                    
+                    let annotationArray = self.clusteringManager.clusteredAnnotations(withinMapRect: self.placeMapView.visibleMapRect, zoomScale:scale)
+                    
+                    DispatchQueue.main.async {
+                        self.clusteringManager.display(annotations: annotationArray, onMapView:self.placeMapView)
+                    }
+                }
+            }
+            
+            if self.fuelBtn.isSelected {
+                //TODO: self.getFuels(bottom: bottom, top: top, center: userLoc.coordinate);
+            }
+            else {
+                //TODO: self.placeMapView.removeAnnotations(annotationsFuel);
+            }
+            
+            if self.electricBtn.isSelected {
+                //TODO: self.getElectrics(bottom: bottom, top: top, center: userLoc.coordinate);
+            }
+            else {
+                //TODO: self.placeMapView.removeAnnotations(annotationsElectric);
+            }
+            
+            if self.accidentBtn.isSelected {
+                //TODO: self.getAccidents(bottom: bottom, top: top, center: userLoc.coordinate);
+            }
+            else {
+                //TODO: self.placeMapView.removeAnnotations(annotationsAccident);
+            }
+        }
     }
     
     func mapViewTemplate(_ template: String) {
@@ -202,14 +268,7 @@ extension MapViewController : MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        
-        if hasFinishRendering {
-            let bounds = self.placeMapView.getBoundingBox();
-            let top = bounds[0];
-            let bottom = bounds[1];
-            let userLoc = self.placeMapView.userLocation;
-            self.getParkings(bottom: bottom, top: top, center: userLoc.coordinate);
-        }
+        updateMapView();
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
