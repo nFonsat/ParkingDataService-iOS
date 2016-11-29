@@ -15,6 +15,7 @@
 		10353CEB1DCF581B00A74914 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353CEA1DCF581B00A74914 /* Parking.swift */; };
 		10353CEE1DCF5AC300A74914 /* ParkingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353CED1DCF5AC300A74914 /* ParkingFactory.swift */; };
 		10471D5D1DEDD03E0012CF26 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10471D5C1DEDD03E0012CF26 /* Place.swift */; };
+		10471D5F1DEDDA290012CF26 /* DefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10471D5E1DEDDA290012CF26 /* DefaultViewController.swift */; };
 		104D05A31DD203E8009B45B7 /* FBAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D05981DD203E8009B45B7 /* FBAnnotation.swift */; };
 		104D05A41DD203E8009B45B7 /* FBAnnotationCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D05991DD203E8009B45B7 /* FBAnnotationCluster.swift */; };
 		104D05A51DD203E8009B45B7 /* FBAnnotationClusterTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D059A1DD203E8009B45B7 /* FBAnnotationClusterTemplate.swift */; };
@@ -63,6 +64,7 @@
 		10353CEA1DCF581B00A74914 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
 		10353CED1DCF5AC300A74914 /* ParkingFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingFactory.swift; sourceTree = "<group>"; };
 		10471D5C1DEDD03E0012CF26 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		10471D5E1DEDDA290012CF26 /* DefaultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultViewController.swift; sourceTree = "<group>"; };
 		104D05981DD203E8009B45B7 /* FBAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBAnnotation.swift; sourceTree = "<group>"; };
 		104D05991DD203E8009B45B7 /* FBAnnotationCluster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBAnnotationCluster.swift; sourceTree = "<group>"; };
 		104D059A1DD203E8009B45B7 /* FBAnnotationClusterTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBAnnotationClusterTemplate.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		10EF52A61DE19F9000499D61 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				10471D5E1DEDDA290012CF26 /* DefaultViewController.swift */,
 				10EF52A71DE19F9000499D61 /* MapViewController.swift */,
 				10EF52A81DE19F9000499D61 /* MapViewController.xib */,
 				10EF52A91DE19F9000499D61 /* SearchViewController.swift */,
@@ -314,6 +317,7 @@
 				10353CE21DCF405200A74914 /* GeoPointService.swift in Sources */,
 				104D05AB1DD203E8009B45B7 /* FBQuadTree.swift in Sources */,
 				378A818A1D7FF38600DD8AE7 /* AppDelegate.swift in Sources */,
+				10471D5F1DEDDA290012CF26 /* DefaultViewController.swift in Sources */,
 				10EF52AB1DE19F9000499D61 /* MapViewController.swift in Sources */,
 				10471D5D1DEDD03E0012CF26 /* Place.swift in Sources */,
 			);
