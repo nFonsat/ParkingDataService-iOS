@@ -59,13 +59,7 @@ public class FBAnnotationClusterView : MKAnnotationView {
 	private func updateClusterSize() {
 		if let cluster = annotation as? FBAnnotationCluster {
 
-			//let count = cluster.annotations.count
-            var count = 0;
-            for anot in cluster.annotations {
-                let parking: Parking = anot as! Parking;
-                count += parking.nbPlace;
-            }
-            
+			let count = cluster.annotations.count
 			let template = configuration.templateForCount(count: count)
 
 			switch template.displayMode {
