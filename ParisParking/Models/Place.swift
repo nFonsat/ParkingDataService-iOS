@@ -36,6 +36,7 @@ class Place: NSObject, MKAnnotation {
         self.idApi = place.idApi;
         self.address = place.address;
         self.coordinate = place.coordinate;
+        self.meters = place.meters;
         super.init();
     }
     

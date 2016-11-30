@@ -32,6 +32,8 @@
 		1079DCBC1DCDBB0600A50781 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */; };
 		1079DCBE1DCDBB6700A50781 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1079DCB91DCDBB0600A50781 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1079DCBF1DCDBB6700A50781 /* SwiftyJSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10919E971DEF4FB80005C17D /* ChargingPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10919E961DEF4FB80005C17D /* ChargingPoint.swift */; };
+		10919E991DEF51330005C17D /* ChargingPointFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10919E981DEF51330005C17D /* ChargingPointFactory.swift */; };
 		10D3C8F31DD0BD9E000A9B87 /* MKMapViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3C8F21DD0BD9E000A9B87 /* MKMapViewExt.swift */; };
 		10E565511DEEF65300E6D5C3 /* FuelStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E565501DEEF65300E6D5C3 /* FuelStation.swift */; };
 		10E565551DEF033A00E6D5C3 /* FuelStationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E565541DEF033A00E6D5C3 /* FuelStationFactory.swift */; };
@@ -83,6 +85,8 @@
 		104D05A21DD203E8009B45B7 /* FBZoomLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBZoomLevel.swift; sourceTree = "<group>"; };
 		1079DCB91DCDBB0600A50781 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		1079DCBA1DCDBB0600A50781 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		10919E961DEF4FB80005C17D /* ChargingPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargingPoint.swift; sourceTree = "<group>"; };
+		10919E981DEF51330005C17D /* ChargingPointFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargingPointFactory.swift; sourceTree = "<group>"; };
 		10D3C8F21DD0BD9E000A9B87 /* MKMapViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExt.swift; sourceTree = "<group>"; };
 		10E565501DEEF65300E6D5C3 /* FuelStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelStation.swift; sourceTree = "<group>"; };
 		10E565541DEF033A00E6D5C3 /* FuelStationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelStationFactory.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 		10353CE91DCF57E500A74914 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				10919E961DEF4FB80005C17D /* ChargingPoint.swift */,
 				10E565501DEEF65300E6D5C3 /* FuelStation.swift */,
 				10353CEA1DCF581B00A74914 /* Parking.swift */,
 				10471D5C1DEDD03E0012CF26 /* Place.swift */,
@@ -152,6 +157,7 @@
 		10353CEC1DCF5A1000A74914 /* Factory */ = {
 			isa = PBXGroup;
 			children = (
+				10919E981DEF51330005C17D /* ChargingPointFactory.swift */,
 				10E565541DEF033A00E6D5C3 /* FuelStationFactory.swift */,
 				10353CED1DCF5AC300A74914 /* ParkingFactory.swift */,
 				10E565561DEF03C300E6D5C3 /* PlaceFactory.swift */,
@@ -336,6 +342,8 @@
 				104D05A91DD203E8009B45B7 /* FBBoundingBox.swift in Sources */,
 				10353CEE1DCF5AC300A74914 /* ParkingFactory.swift in Sources */,
 				10EF52AD1DE19F9000499D61 /* SearchViewController.swift in Sources */,
+				10919E971DEF4FB80005C17D /* ChargingPoint.swift in Sources */,
+				10919E991DEF51330005C17D /* ChargingPointFactory.swift in Sources */,
 				10D3C8F31DD0BD9E000A9B87 /* MKMapViewExt.swift in Sources */,
 				10471D621DEE192C0012CF26 /* SearchPlace.swift in Sources */,
 				10353CE21DCF405200A74914 /* GeoPointService.swift in Sources */,
