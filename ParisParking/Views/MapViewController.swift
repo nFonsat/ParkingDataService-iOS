@@ -36,6 +36,7 @@ class MapViewController: DefaultViewController  {
     var annotationsParking:[Parking] = [];
     var parkings:[Parking] = [];
     var fuels:[FuelStation] = [];
+    var chargingPoints:[ChargingPoint] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -181,6 +182,25 @@ extension MapViewController : MKMapViewDelegate {
         }
     }
     
+    func getChargingPoints(bottom: CLLocationCoordinate2D, top: CLLocationCoordinate2D,  center: CLLocationCoordinate2D) {
+        self.geoService.chargingPoint(min: bottom, max: top, center: center).responseJSON { (response) in
+            let old:[ChargingPoint] = self.chargingPoints;
+            self.chargingPoints.removeAll();
+            if let result = response.result.value {
+                let jsonResult = JSON(result);
+                for value in jsonResult["result"].array! {
+                    let point:ChargingPoint = ChargingPointFactory.getChargingPointFromJson(value);
+                    self.chargingPoints.append(point);
+                }
+            }
+            print("-- getChargingPoints() -- \(self.chargingPoints.count)");
+            DispatchQueue.main.async(execute: {
+                self.placeMapView.removeAnnotations(old);
+                self.placeMapView.addAnnotations(self.chargingPoints);
+            })
+        }
+    }
+    
     func initMapView() {
         coreLocationInit()
         self.placeMapView.delegate = self
@@ -218,7 +238,7 @@ extension MapViewController : MKMapViewDelegate {
             }
             
             if self.electricBtn.isSelected {
-                //TODO: self.getElectrics(bottom: bottom, top: top, center: userLoc.coordinate);
+                self.getChargingPoints(bottom: bottom, top: top, center: userLoc.coordinate);
             }
             else {
                 //TODO: self.placeMapView.removeAnnotations(annotationsElectric);
