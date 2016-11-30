@@ -24,6 +24,23 @@ class GeoPointService {
     }()
     
     func parkings(min:CLLocationCoordinate2D, max:CLLocationCoordinate2D, center:CLLocationCoordinate2D) -> DataRequest {
+        let url = self.getUrlForBound("parking", min: min, max: max, limit: 3000, center: center);
+        
+        return self.request(url);
+    }
+    
+    func fuels(min:CLLocationCoordinate2D, max:CLLocationCoordinate2D, center:CLLocationCoordinate2D) -> DataRequest {
+        let url = self.getUrlForBound("fuel", min: min, max: max, limit: 50, center: center);
+        
+        return self.request(url);
+    }
+    
+    private func request(_ url: String) -> DataRequest {
+        print("New request : \(url)");
+        return Alamofire.request(url);
+    }
+    
+    private func getUrlForBound(_ data:String,  min:CLLocationCoordinate2D, max:CLLocationCoordinate2D, limit:Int , center:CLLocationCoordinate2D) -> String {
         let xMin = min.latitude;
         let yMin = min.longitude;
         
@@ -33,11 +50,8 @@ class GeoPointService {
         let xCenter = center.latitude;
         let yCenter = center.longitude;
         
-        let limit = 2000;
+        let limit = limit;
         
-        let url = self.base.appending("/parking/bounds/\(xMin)/\(yMin)/\(xMax)/\(yMax)?limit=\(limit)&center=\(xCenter);\(yCenter)");
-        
-        print("New request : \(url)");
-        return Alamofire.request(url);
+        return self.base.appending("/\(data)/bounds/\(xMin)/\(yMin)/\(xMax)/\(yMax)?limit=\(limit)&center=\(xCenter);\(yCenter)");
     }
 }
