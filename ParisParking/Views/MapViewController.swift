@@ -116,6 +116,20 @@ extension MapViewController : FBClusteringManagerDelegate {
     func cellSizeFactor(forCoordinator coordinator:FBClusteringManager) -> CGFloat {
         return 1.0
     }
+    
+    func fbReloadData() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            let mapBoundsWidth = Double(self.placeMapView.bounds.size.width)
+            let mapRectWidth = self.placeMapView.visibleMapRect.size.width
+            let scale = mapBoundsWidth / mapRectWidth
+            
+            let annotationArray = self.clusteringManager.clusteredAnnotations(withinMapRect: self.placeMapView.visibleMapRect, zoomScale:scale)
+            
+            DispatchQueue.main.async {
+                self.clusteringManager.display(annotations: annotationArray, onMapView:self.placeMapView)
+            }
+        }
+    }
 }
 
 extension MapViewController : MKMapViewDelegate {
@@ -143,17 +157,7 @@ extension MapViewController : MKMapViewDelegate {
                 self.clusteringManager.removeAll();
                 self.clusteringManager.add(annotations: self.annotationsParking);
                 self.placeTableView.reloadData();
-                DispatchQueue.global(qos: .userInitiated).async {
-                    let mapBoundsWidth = Double(self.placeMapView.bounds.size.width)
-                    let mapRectWidth = self.placeMapView.visibleMapRect.size.width
-                    let scale = mapBoundsWidth / mapRectWidth
-                    
-                    let annotationArray = self.clusteringManager.clusteredAnnotations(withinMapRect: self.placeMapView.visibleMapRect, zoomScale:scale)
-                    
-                    DispatchQueue.main.async {
-                        self.clusteringManager.display(annotations: annotationArray, onMapView:self.placeMapView)
-                    }
-                }
+                self.fbReloadData();
             })
         }
     }
@@ -182,17 +186,7 @@ extension MapViewController : MKMapViewDelegate {
             else {
                 self.annotationsParking.removeAll();
                 self.clusteringManager.removeAll();
-                DispatchQueue.global(qos: .userInitiated).async {
-                    let mapBoundsWidth = Double(self.placeMapView.bounds.size.width)
-                    let mapRectWidth = self.placeMapView.visibleMapRect.size.width
-                    let scale = mapBoundsWidth / mapRectWidth
-                    
-                    let annotationArray = self.clusteringManager.clusteredAnnotations(withinMapRect: self.placeMapView.visibleMapRect, zoomScale:scale)
-                    
-                    DispatchQueue.main.async {
-                        self.clusteringManager.display(annotations: annotationArray, onMapView:self.placeMapView)
-                    }
-                }
+                self.fbReloadData();
             }
             
             if self.fuelBtn.isSelected {
