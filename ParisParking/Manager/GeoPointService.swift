@@ -13,8 +13,8 @@ import CoreLocation
 
 class GeoPointService {
     
-    private let base = "http://192.168.1.8";
-    //private let base = "http://10.33.1.131";
+    private let base = "http://192.168.1.41";
+    //private let base = "http://10.33.1.167";
     
     //MARK: Shared Instance
     
@@ -31,6 +31,18 @@ class GeoPointService {
     
     func fuels(min:CLLocationCoordinate2D, max:CLLocationCoordinate2D, center:CLLocationCoordinate2D) -> DataRequest {
         let url = self.getUrlForBound("fuel", min: min, max: max, limit: 50, center: center);
+        
+        return self.request(url);
+    }
+    
+    func chargingPoint(min:CLLocationCoordinate2D, max:CLLocationCoordinate2D, center:CLLocationCoordinate2D) -> DataRequest {
+        let url = self.getUrlForBound("charging", min: min, max: max, limit: 50, center: center);
+        
+        return self.request(url);
+    }
+    
+    func crash(min:CLLocationCoordinate2D, max:CLLocationCoordinate2D, center:CLLocationCoordinate2D) -> DataRequest {
+        let url = self.getUrlForBound("crash", min: min, max: max, limit: 50, center: center);
         
         return self.request(url);
     }

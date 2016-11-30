@@ -12,9 +12,9 @@ import CoreLocation
 
 class Place: NSObject, MKAnnotation {
     
-    let idApi: String;
-    let address: String;
-    let coordinate: CLLocationCoordinate2D;
+    var idApi: String?
+    var address: String
+    var coordinate: CLLocationCoordinate2D
     
     var meters: Int?
     
@@ -22,6 +22,21 @@ class Place: NSObject, MKAnnotation {
         self.idApi = id;
         self.address = address;
         self.coordinate = coord;
+        super.init();
+    }
+    
+    init(address:String, coord:CLLocationCoordinate2D) {
+        self.idApi = nil;
+        self.address = address;
+        self.coordinate = coord;
+        super.init();
+    }
+    
+    init(place: Place){
+        self.idApi = place.idApi;
+        self.address = place.address;
+        self.coordinate = place.coordinate;
+        self.meters = place.meters;
         super.init();
     }
     
