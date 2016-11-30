@@ -25,6 +25,13 @@ class Place: NSObject, MKAnnotation {
         super.init();
     }
     
+    init(place: Place){
+        self.idApi = place.idApi;
+        self.address = place.address;
+        self.coordinate = place.coordinate;
+        super.init();
+    }
+    
     var title: String? {
         return self.address
     }
