@@ -41,6 +41,12 @@ class GeoPointService {
         return self.request(url);
     }
     
+    func crash(min:CLLocationCoordinate2D, max:CLLocationCoordinate2D, center:CLLocationCoordinate2D) -> DataRequest {
+        let url = self.getUrlForBound("crash", min: min, max: max, limit: 50, center: center);
+        
+        return self.request(url);
+    }
+    
     private func request(_ url: String) -> DataRequest {
         print("New request : \(url)");
         return Alamofire.request(url);

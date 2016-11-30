@@ -37,6 +37,7 @@ class MapViewController: DefaultViewController  {
     var parkings:[Parking] = [];
     var fuels:[FuelStation] = [];
     var chargingPoints:[ChargingPoint] = [];
+    var crashPlaces:[CrashPlace] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -201,6 +202,25 @@ extension MapViewController : MKMapViewDelegate {
         }
     }
     
+    func getCrashPlaces(bottom: CLLocationCoordinate2D, top: CLLocationCoordinate2D,  center: CLLocationCoordinate2D) {
+        self.geoService.crash(min: bottom, max: top, center: center).responseJSON { (response) in
+            let old:[CrashPlace] = self.crashPlaces;
+            self.crashPlaces.removeAll();
+            if let result = response.result.value {
+                let jsonResult = JSON(result);
+                for value in jsonResult["result"].array! {
+                    let point:CrashPlace = CrashPlaceFactory.getChargingPointFromJson(value);
+                    self.crashPlaces.append(point);
+                }
+            }
+            print("-- getCrashPlaces() -- \(self.crashPlaces.count)");
+            DispatchQueue.main.async(execute: {
+                self.placeMapView.removeAnnotations(old);
+                self.placeMapView.addAnnotations(self.crashPlaces);
+            })
+        }
+    }
+    
     func initMapView() {
         coreLocationInit()
         self.placeMapView.delegate = self
@@ -245,7 +265,7 @@ extension MapViewController : MKMapViewDelegate {
             }
             
             if self.accidentBtn.isSelected {
-                //TODO: self.getAccidents(bottom: bottom, top: top, center: userLoc.coordinate);
+                self.getCrashPlaces(bottom: bottom, top: top, center: userLoc.coordinate);
             }
             else {
                 //TODO: self.placeMapView.removeAnnotations(annotationsAccident);
