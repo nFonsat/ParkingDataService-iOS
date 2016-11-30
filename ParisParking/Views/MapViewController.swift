@@ -162,6 +162,15 @@ extension MapViewController : MKMapViewDelegate {
         }
     }
     
+    func getFuels(bottom: CLLocationCoordinate2D, top: CLLocationCoordinate2D,  center: CLLocationCoordinate2D) {
+        self.geoService.fuels(min: bottom, max: top, center: center).responseJSON { (response) in
+            if let result = response.result.value {
+                let jsonResult = JSON(result);
+                print("RESULT FUELS : \(jsonResult)");
+            }
+        }
+    }
+    
     func initMapView() {
         coreLocationInit()
         self.placeMapView.delegate = self
@@ -190,7 +199,7 @@ extension MapViewController : MKMapViewDelegate {
             }
             
             if self.fuelBtn.isSelected {
-                //TODO: self.getFuels(bottom: bottom, top: top, center: userLoc.coordinate);
+                self.getFuels(bottom: bottom, top: top, center: userLoc.coordinate);
             }
             else {
                 //TODO: self.placeMapView.removeAnnotations(annotationsFuel);
