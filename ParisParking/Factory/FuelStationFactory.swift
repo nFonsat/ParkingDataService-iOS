@@ -15,17 +15,25 @@ class FuelStationFactory {
     class func getFuelStationFromJson(_ data: JSON) -> FuelStation {
         let station:FuelStation = FuelStation(place: PlaceFactory.getPlaceFromJson(data));
         
-        station.name  = data["name_station"].string;
-        station.brand = data["brand"].string;
+        if let value = data["name_station"].string {
+            station.name = value;
+        }
+        
+        if let value = data["brand"].string {
+            station.brand = value;
+        }
         
         if let schedules:[String] = data["schedule"].string?.components(separatedBy: ",") {
             station.openDate  = schedules[0];
             station.closeDate = schedules[1];
         }
         
-        let updated:String = data["last_update"].string!;
-        let formater:DateFormatter = DateFormatter();
-        station.updated = formater.date(from: updated);
+        if let value = data["last_update"].string {
+            let formater:DateFormatter = DateFormatter();
+            formater.dateFormat = "yyyy-MM-dd HH:mm:ssZ";
+            let date = formater.date(from: value);
+            station.updated = date;
+        }
         
         if let opening:String = data["opening"].string {
             station.opening = opening.components(separatedBy: ":");

@@ -40,7 +40,10 @@ class ChargingPointFactory {
         
         if let value = data["last_update"].string {
             if !value.isEmpty {
-                ////
+                let formater:DateFormatter = DateFormatter();
+                formater.dateFormat = "yyyy-MM-dd HH:mm:ssZ";
+                let date = formater.date(from: value);
+                point.updated = date;
             }
         }
         

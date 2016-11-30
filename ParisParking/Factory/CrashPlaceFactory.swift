@@ -16,8 +16,9 @@ class CrashPlaceFactory {
         if let value = data["creation"].string {
             if !value.isEmpty {
                 let formater:DateFormatter = DateFormatter();
-                //formater.dateFormat = "yyyy-MM-dd HH:mm:ss";
-                crash.creation = formater.date(from: value);
+                formater.dateFormat = "yyyy-MM-dd HH:mm:ssZ";
+                let date = formater.date(from: value);
+                crash.creation = date;
             }
         }
         
