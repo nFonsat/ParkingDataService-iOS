@@ -109,9 +109,9 @@
         </view>
     </objects>
     <resources>
-        <image name="accident" width="64" height="64"/>
-        <image name="charge" width="64" height="64"/>
-        <image name="parking" width="64" height="64"/>
-        <image name="station" width="64" height="64"/>
+        <image name="accident" width="40" height="40"/>
+        <image name="charge" width="40" height="40"/>
+        <image name="parking" width="40" height="40"/>
+        <image name="station" width="40" height="40"/>
     </resources>
 </document>
