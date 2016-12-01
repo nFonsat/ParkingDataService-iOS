@@ -8,7 +8,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ParkingDetailViewController" customModule="ParisParking" customModuleProvider="target">
             <connections>
-                <outlet property="navigateAction" destination="yeJ-fT-AzA" id="Beh-cs-VKM"/>
                 <outlet property="navigateBtn" destination="VAa-ij-X7I" id="iCI-Bp-Kz7"/>
                 <outlet property="placeMapView" destination="3OI-eT-fMs" id="15F-he-Pnt"/>
                 <outlet property="stepTableView" destination="yeJ-fT-AzA" id="YOO-N1-Hhz"/>
@@ -33,6 +32,9 @@
                     <state key="normal" title="Navigate">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="navigateAction:" destination="-1" eventType="touchUpInside" id="hEK-GJ-4hH"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

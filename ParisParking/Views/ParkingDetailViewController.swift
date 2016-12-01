@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 import SwiftyJSON
 
-class ParkingDetailViewController: UIViewController {
+class ParkingDetailViewController: DefaultViewController {
     
     @IBOutlet weak var placeMapView: MKMapView!
     @IBOutlet weak var stepTableView: UITableView!
@@ -32,6 +32,7 @@ class ParkingDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = parking.address;
         self.navigationController?.navigationBar.isHidden = false;
         
         self.initMapView();
@@ -57,7 +58,20 @@ class ParkingDetailViewController: UIViewController {
         self.stepTableView.reloadData();
     }
     
-    @IBOutlet weak var navigateAction: UITableView!
+    
+    @IBAction func navigateAction(_ sender: UIButton) {
+        let application: UIApplication = UIApplication.shared;
+        
+        var url = "http://maps.apple.com/?daddr=\(parking.coordinate.latitude),\(parking.coordinate.longitude)";
+        
+        if application.openURL(URL(string: "comgooglemaps://")!) {
+            url = "comgooglemaps://?daddr=\(parking.coordinate.latitude),\(parking.coordinate.longitude)&directionsmode=driving";
+        }
+        
+        application.openURL(URL(string: url)!);
+    }
+    
+    
     func askAvailabality() {
         let alertCtrl:UIAlertController = UIAlertController(title: "Available", message: "Is there available place ?", preferredStyle: .alert);
         alertCtrl.addAction(UIAlertAction(title: "Nothing", style: .default, handler: { (action) in
