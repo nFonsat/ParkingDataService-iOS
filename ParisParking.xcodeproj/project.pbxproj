@@ -42,8 +42,6 @@
 		10E565571DEF03C300E6D5C3 /* PlaceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E565561DEF03C300E6D5C3 /* PlaceFactory.swift */; };
 		10EF52AB1DE19F9000499D61 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF52A71DE19F9000499D61 /* MapViewController.swift */; };
 		10EF52AC1DE19F9000499D61 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10EF52A81DE19F9000499D61 /* MapViewController.xib */; };
-		10EF52AD1DE19F9000499D61 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF52A91DE19F9000499D61 /* SearchViewController.swift */; };
-		10EF52AE1DE19F9000499D61 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10EF52AA1DE19F9000499D61 /* SearchViewController.xib */; };
 		378A818A1D7FF38600DD8AE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A81891D7FF38600DD8AE7 /* AppDelegate.swift */; };
 		378A81911D7FF38600DD8AE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378A81901D7FF38600DD8AE7 /* Assets.xcassets */; };
 		378A81941D7FF38600DD8AE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378A81921D7FF38600DD8AE7 /* LaunchScreen.storyboard */; };
@@ -97,8 +95,6 @@
 		10E565561DEF03C300E6D5C3 /* PlaceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceFactory.swift; sourceTree = "<group>"; };
 		10EF52A71DE19F9000499D61 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		10EF52A81DE19F9000499D61 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
-		10EF52A91DE19F9000499D61 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		10EF52AA1DE19F9000499D61 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		378A81861D7FF38600DD8AE7 /* ParisParking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParisParking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		378A81891D7FF38600DD8AE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		378A81901D7FF38600DD8AE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -214,8 +210,6 @@
 				10471D5E1DEDDA290012CF26 /* DefaultViewController.swift */,
 				10EF52A71DE19F9000499D61 /* MapViewController.swift */,
 				10EF52A81DE19F9000499D61 /* MapViewController.xib */,
-				10EF52A91DE19F9000499D61 /* SearchViewController.swift */,
-				10EF52AA1DE19F9000499D61 /* SearchViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,7 +312,6 @@
 			files = (
 				378A81941D7FF38600DD8AE7 /* LaunchScreen.storyboard in Resources */,
 				10EF52AC1DE19F9000499D61 /* MapViewController.xib in Resources */,
-				10EF52AE1DE19F9000499D61 /* SearchViewController.xib in Resources */,
 				100B69231DED8DDA00BCEC66 /* PlaceTableViewCell.xib in Resources */,
 				378A81911D7FF38600DD8AE7 /* Assets.xcassets in Resources */,
 			);
@@ -349,7 +342,6 @@
 				10353CEB1DCF581B00A74914 /* Parking.swift in Sources */,
 				104D05A91DD203E8009B45B7 /* FBBoundingBox.swift in Sources */,
 				10353CEE1DCF5AC300A74914 /* ParkingFactory.swift in Sources */,
-				10EF52AD1DE19F9000499D61 /* SearchViewController.swift in Sources */,
 				10919E971DEF4FB80005C17D /* ChargingPoint.swift in Sources */,
 				10919E991DEF51330005C17D /* ChargingPointFactory.swift in Sources */,
 				10D3C8F31DD0BD9E000A9B87 /* MKMapViewExt.swift in Sources */,
