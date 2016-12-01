@@ -7,18 +7,31 @@
 //
 
 import UIKit
-import MapKit;
+import MapKit
+import CoreLocation
 import SwiftyJSON
 
 class ParkingDetailViewController: UIViewController {
     
+    @IBOutlet weak var placeMapView: MKMapView!
+    
+    let locationManager: CLLocationManager = CLLocationManager();
+
     let parkingService:ParkingDataService = ParkingDataService.shared;
+    
+    var hasFinishRendering:Bool = false;
     
     var parking:Parking!
     var routes:[MKRoute]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.isHidden = false;
+        
+        self.initMapView();
+        self.placeMapView.add((routes.first?.polyline)!);
+        
         
         self.parkingService.avaibility(parking)
             .responseJSON { (response) in
@@ -38,12 +51,12 @@ class ParkingDetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.askAvailabality();
+        hasFinishRendering = true;
     }
     
     func askAvailabality() {
         let alertCtrl:UIAlertController = UIAlertController(title: "Available", message: "Is there available place ?", preferredStyle: .alert);
-        alertCtrl.addAction(UIAlertAction(title: "Nothing place", style: .default, handler: { (action) in
+        alertCtrl.addAction(UIAlertAction(title: "Nothing", style: .default, handler: { (action) in
             self.setAvalability(0);
         }));
         alertCtrl.addAction(UIAlertAction(title: "25% of place", style: .default, handler: { (action) in
@@ -74,5 +87,69 @@ class ParkingDetailViewController: UIViewController {
                 }
             }
     }
+}
 
+extension ParkingDetailViewController : CLLocationManagerDelegate {
+    func coreLocationInit() {
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        self.locationManager.delegate = self;
+        authorizationCoreLocation()
+    }
+    
+    func authorizationCoreLocation() {
+        let status = CLLocationManager.authorizationStatus()
+        if status == .notDetermined || status == .denied || status == .authorizedWhenInUse {
+            self.locationManager.requestAlwaysAuthorization()
+            self.locationManager.requestWhenInUseAuthorization()
+        }
+        self.locationManager.startUpdatingLocation()
+        self.locationManager.startUpdatingHeading()
+    }
+}
+
+extension ParkingDetailViewController : MKMapViewDelegate {
+    
+    func initMapView() {
+        coreLocationInit()
+        self.placeMapView.delegate = self
+        self.placeMapView.showsUserLocation = true
+        self.placeMapView.mapType = MKMapType(rawValue: 0)!
+        self.placeMapView.userTrackingMode = MKUserTrackingMode(rawValue: 2)!
+        
+        /*let template = "http://tile.openstreetmap.org/{z}/{x}/{y}.png";
+         self.mapViewTemplate(template);*/
+    }
+    
+    func mapViewTemplate(_ template: String) {
+        let overlay  = MKTileOverlay(urlTemplate: template)
+        overlay.canReplaceMapContent = true
+        
+        self.placeMapView.add(overlay, level: .aboveLabels)
+    }
+    
+    func zoomOnMap(_ location: CLLocationCoordinate2D, meters: Double) {
+        let region:MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(location, meters, meters);
+        self.placeMapView.setRegion(region, animated: true);
+    }
+    
+    func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
+        if fullyRendered {
+            self.placeMapView.showAnnotations([parking, self.placeMapView.userLocation], animated: true);
+        }
+        hasFinishRendering = fullyRendered;
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay.isKind(of: MKTileOverlay.self) {
+            return MKTileOverlayRenderer(overlay: overlay)
+        }
+        else if overlay.isKind(of: MKPolyline.self) {
+            let renderer:MKPolylineRenderer = MKPolylineRenderer(polyline: overlay as! MKPolyline);
+            renderer.strokeColor = UIColor.brown;
+            renderer.lineWidth = 3;
+            return renderer;
+        }
+        
+        return MKOverlayRenderer(overlay: overlay)
+    }
 }
