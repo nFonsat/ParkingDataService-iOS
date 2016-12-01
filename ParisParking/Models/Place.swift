@@ -15,6 +15,7 @@ class Place: NSObject, MKAnnotation {
     var idApi: String?
     var address: String
     var coordinate: CLLocationCoordinate2D
+    var image:String = "";
     
     var meters: Int?
     

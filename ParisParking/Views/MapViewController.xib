@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,55 +26,65 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="djR-ef-kNO"/>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="djR-ef-kNO">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                </mapView>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Lpj-dl-Kdp">
+                    <rect key="frame" x="37.5" y="25" width="300" height="44"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NEt-jr-Dy3">
+                    <rect key="frame" x="0.0" y="400" width="375" height="223"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJo-BR-lDj">
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJo-BR-lDj">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                     <items>
+                        <barButtonItem width="30" style="plain" systemItem="fixedSpace" id="Iu5-31-Mto"/>
                         <barButtonItem style="plain" id="lTp-9v-kCE">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uNu-v8-9oA">
-                                <rect key="frame" x="16" y="7" width="52" height="30"/>
+                            <button key="customView" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uNu-v8-9oA">
+                                <rect key="frame" x="46" y="2" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Parking"/>
+                                <state key="normal" image="parking"/>
                                 <connections>
                                     <action selector="displayOnMapAction:" destination="-1" eventType="touchUpInside" id="sxc-bj-aZI"/>
                                 </connections>
                             </button>
                         </barButtonItem>
+                        <barButtonItem width="30" style="plain" systemItem="fixedSpace" id="o3w-3W-nzg"/>
                         <barButtonItem style="plain" id="gIJ-oT-Foe">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LMB-6e-GXN">
-                                <rect key="frame" x="78" y="7" width="79" height="30"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LMB-6e-GXN">
+                                <rect key="frame" x="126" y="2" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Carburant"/>
+                                <state key="normal" image="station"/>
                                 <connections>
                                     <action selector="displayOnMapAction:" destination="-1" eventType="touchUpInside" id="PFl-Bj-g3a"/>
                                 </connections>
                             </button>
                         </barButtonItem>
+                        <barButtonItem width="30" style="plain" systemItem="fixedSpace" id="H2z-lN-u0Q"/>
                         <barButtonItem style="plain" id="1Xw-xn-Git">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IBt-CU-pc9">
-                                <rect key="frame" x="167" y="7" width="83" height="30"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IBt-CU-pc9">
+                                <rect key="frame" x="206" y="2" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Electrique"/>
+                                <state key="normal" image="charge"/>
                                 <connections>
                                     <action selector="displayOnMapAction:" destination="-1" eventType="touchUpInside" id="wJQ-ox-UAa"/>
                                 </connections>
                             </button>
                         </barButtonItem>
+                        <barButtonItem width="30" style="plain" systemItem="fixedSpace" id="da3-v0-vLp"/>
                         <barButtonItem style="plain" id="9qs-3X-qlR">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1bx-nO-WyT">
-                                <rect key="frame" x="260" y="7" width="92" height="30"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1bx-nO-WyT">
+                                <rect key="frame" x="286" y="-1" width="45" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Accident"/>
+                                <state key="normal" image="accident"/>
                                 <connections>
                                     <action selector="displayOnMapAction:" destination="-1" eventType="touchUpInside" id="u2k-qB-EMi"/>
                                 </connections>
                             </button>
                         </barButtonItem>
+                        <barButtonItem width="30" style="plain" systemItem="fixedSpace" id="HV6-pz-MOA"/>
                     </items>
                 </toolbar>
             </subviews>
@@ -87,7 +100,7 @@
                 <constraint firstItem="Lpj-dl-Kdp" firstAttribute="width" secondItem="djR-ef-kNO" secondAttribute="width" multiplier="0.8" id="fNM-Op-pPX"/>
                 <constraint firstItem="NEt-jr-Dy3" firstAttribute="top" secondItem="djR-ef-kNO" secondAttribute="bottom" id="mWz-bF-OEX"/>
                 <constraint firstItem="NEt-jr-Dy3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uIc-c7-FSB"/>
-                <constraint firstItem="Lpj-dl-Kdp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="wI6-ww-BSn"/>
+                <constraint firstItem="Lpj-dl-Kdp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="25" id="wI6-ww-BSn"/>
                 <constraint firstItem="ZJo-BR-lDj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xFg-vd-nVH"/>
                 <constraint firstItem="ZJo-BR-lDj" firstAttribute="top" secondItem="NEt-jr-Dy3" secondAttribute="bottom" id="xLC-jc-tZL"/>
             </constraints>
@@ -95,4 +108,10 @@
             <point key="canvasLocation" x="537.5" y="268.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="accident" width="40" height="40"/>
+        <image name="charge" width="40" height="40"/>
+        <image name="parking" width="40" height="40"/>
+        <image name="station" width="40" height="40"/>
+    </resources>
 </document>

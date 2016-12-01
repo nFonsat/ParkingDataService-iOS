@@ -46,11 +46,23 @@ class MapViewController: DefaultViewController  {
         initMapView();
         initSearchBar();
         
-        self.parkingBtn.isSelected = true;
-        self.fuelBtn.isSelected = false;
-        self.electricBtn.isSelected = false;
-        self.accidentBtn.isSelected = false;
+
+        self.navigationController?.navigationBar.isHidden = true;
         
+        self.parkingBtn.setTitle("", for: .normal)
+        self.parkingBtn.setImage(#imageLiteral(resourceName: "parking-pressed"), for: .selected)
+        self.parkingBtn.isSelected = true;
+
+    
+        self.fuelBtn.setImage(#imageLiteral(resourceName: "station-pressed"), for: .selected)
+        self.fuelBtn.isSelected = false;
+        
+    
+        self.electricBtn.setImage(#imageLiteral(resourceName: "charge-pressed"), for: .selected)
+        self.electricBtn.isSelected = false;
+        
+         self.accidentBtn.setImage(#imageLiteral(resourceName: "accident-pressed"), for: .selected)
+        self.accidentBtn.isSelected = false;
         clusteringManager.delegate = self;
     }
     
@@ -350,6 +362,20 @@ extension MapViewController : MKMapViewDelegate {
             }
             
             return clusterView
+        }
+        else if annotation is Place {
+            let place:Place = annotation as! Place;
+            let defaultPinID = "com.invasivecode.pin"
+            
+            var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: defaultPinID)
+            if (pinView == nil) {
+                pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: defaultPinID)
+            }
+            
+            pinView?.canShowCallout = true
+            pinView?.image = UIImage(named: place.image)
+            
+            return pinView;
         }
         
         return nil;

@@ -11,10 +11,20 @@ import MapKit
 import CoreLocation
 
 class Parking : Place {
+
     var id: Int?
     var name: String?
     var isParc: Bool!
     var typeParking: String?
     var typeStationnement: String?
     var posStationnement: String?
+    
+    override var image: String {
+        get {
+            return "park-locate"
+        }
+        set {}
+    }
+    
+
 }

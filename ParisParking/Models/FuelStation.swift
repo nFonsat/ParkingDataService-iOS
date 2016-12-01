@@ -24,4 +24,12 @@ class FuelStation: Place {
     var gpl:Float?
     var e10:Float?
     var e85:Float?
+    
+    override var image: String {
+        get {
+            return "station-locate"
+        }
+        set {}
+    }
+    
 }
