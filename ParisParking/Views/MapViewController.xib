@@ -30,7 +30,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                 </mapView>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Lpj-dl-Kdp">
-                    <rect key="frame" x="37.5" y="20" width="300" height="44"/>
+                    <rect key="frame" x="37.5" y="25" width="300" height="44"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NEt-jr-Dy3">
@@ -100,7 +100,7 @@
                 <constraint firstItem="Lpj-dl-Kdp" firstAttribute="width" secondItem="djR-ef-kNO" secondAttribute="width" multiplier="0.8" id="fNM-Op-pPX"/>
                 <constraint firstItem="NEt-jr-Dy3" firstAttribute="top" secondItem="djR-ef-kNO" secondAttribute="bottom" id="mWz-bF-OEX"/>
                 <constraint firstItem="NEt-jr-Dy3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uIc-c7-FSB"/>
-                <constraint firstItem="Lpj-dl-Kdp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="wI6-ww-BSn"/>
+                <constraint firstItem="Lpj-dl-Kdp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="25" id="wI6-ww-BSn"/>
                 <constraint firstItem="ZJo-BR-lDj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xFg-vd-nVH"/>
                 <constraint firstItem="ZJo-BR-lDj" firstAttribute="top" secondItem="NEt-jr-Dy3" secondAttribute="bottom" id="xLC-jc-tZL"/>
             </constraints>
