@@ -20,7 +20,7 @@ class Parking : Place {
     
     override var image: String {
         get {
-            return "parking-pressed"
+            return "park-locate"
         }
         set {}
     }

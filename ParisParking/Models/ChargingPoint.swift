@@ -19,7 +19,7 @@ class ChargingPoint: Place {
     
     override var image: String {
         get {
-            return "charge-pressed"
+            return "flash-locate"
         }
         set {}
     }

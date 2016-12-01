@@ -27,7 +27,7 @@ class FuelStation: Place {
     
     override var image: String {
         get {
-            return "station-pressed"
+            return "station-locate"
         }
         set {}
     }

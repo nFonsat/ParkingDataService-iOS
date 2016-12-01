@@ -13,7 +13,7 @@ class CrashPlace: Place {
     
     override var image: String {
         get {
-            return "accident-pressed"
+            return "crash-locate"
         }
         set {}
     }
