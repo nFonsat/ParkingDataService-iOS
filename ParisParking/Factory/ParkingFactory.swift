@@ -25,6 +25,7 @@ class ParkingFactory {
         
         let parking:Parking = Parking(id, address: address, coord: CLLocationCoordinate2DMake(lat!, lng!));
         
+        parking.id = data["id"] as? Int;
         parking.name = data["name_parking"] as? String;
         parking.isParc = isParc;
         parking.typeParking = typeParking;

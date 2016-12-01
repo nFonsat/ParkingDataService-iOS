@@ -54,4 +54,21 @@ class ParkingDataService {
             })
     }
     
+    func avaibility(_ parking: Parking) -> DataRequest {
+        let url = "/parking/availability/\(parking.id!)";
+        return webService.request(url);
+    }
+    
+    func postAvaibility(_ parking: Parking, level:Int) -> DataRequest {
+        let parkingWeb:ParkingDataService = ParkingDataService.shared
+        let url = "/parking/availability/\(parking.id!)";
+        
+        let parameters: Parameters = [
+            "token": parkingWeb.userToken!,
+            "level": level
+        ]
+        
+        return self.webService.post(url, parameters: parameters)
+    }
+    
 }

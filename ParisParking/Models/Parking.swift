@@ -11,6 +11,7 @@ import MapKit
 import CoreLocation
 
 class Parking : Place {
+    var id: Int?
     var name: String?
     var isParc: Bool!
     var typeParking: String?
