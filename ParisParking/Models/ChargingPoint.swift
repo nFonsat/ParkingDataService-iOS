@@ -16,4 +16,12 @@ class ChargingPoint: Place {
     var connector:String?
     var fast:Bool?
     var updated:Date?
+    
+    override var image: String {
+        get {
+            return "flash-locate"
+        }
+        set {}
+    }
+    
 }

@@ -13,8 +13,8 @@ import CoreLocation
 
 class GeoPointService {
     
-    private let base = "http://192.168.1.41";
-    //private let base = "http://10.33.1.167";
+   // private let base = "http://192.168.1.41";
+      private let base = "http://10.33.1.167";
     
     //MARK: Shared Instance
     
