@@ -34,7 +34,10 @@ class MapViewController: DefaultViewController  {
     var hasFinishRendering = false;
     
     var annotationsParking:[Parking] = [];
-    var places:[Parking] = [];
+    var parkings:[Parking] = [];
+    var fuels:[FuelStation] = [];
+    var chargingPoints:[ChargingPoint] = [];
+    var crashPlaces:[CrashPlace] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -149,20 +152,19 @@ extension MapViewController : MKMapViewDelegate {
         self.geoService.parkings(min: bottom, max: top, center: center).responseJSON { response in
             var count = 0;
             self.annotationsParking.removeAll();
-            self.places.removeAll();
+            self.parkings.removeAll();
             if let result = response.result.value {
                 let jsonResult = JSON(result);
                 for value in jsonResult["result"].array! {
                     let parking:Parking = ParkingFactory.getParkingFromJson(value.object as! [String : AnyObject]);
                     self.annotationsParking.append(parking);
                     if count < 10 {
-                        self.places.append(parking);
+                        self.parkings.append(parking);
                         count+=1;
                     }
                 }
             }
-            print("-- getParkings() : \(top.latitude);\(top.longitude) <=> \(bottom.latitude);\(bottom.longitude) -- \(self.annotationsParking.count)");
-            
+            print("-- getParkings() -- \(self.annotationsParking.count)");
             DispatchQueue.main.async(execute: {
                 self.clusteringManager.removeAll();
                 self.clusteringManager.add(annotations: self.annotationsParking);
@@ -174,10 +176,58 @@ extension MapViewController : MKMapViewDelegate {
     
     func getFuels(bottom: CLLocationCoordinate2D, top: CLLocationCoordinate2D,  center: CLLocationCoordinate2D) {
         self.geoService.fuels(min: bottom, max: top, center: center).responseJSON { (response) in
+            let old:[FuelStation] = self.fuels;
+            self.fuels.removeAll();
             if let result = response.result.value {
                 let jsonResult = JSON(result);
-                print("RESULT FUELS : \(jsonResult)");
+                for value in jsonResult["result"].array! {
+                    let station:FuelStation = FuelStationFactory.getFuelStationFromJson(value);
+                    self.fuels.append(station);
+                }
             }
+            print("-- getFuels() -- \(self.fuels.count)");
+            DispatchQueue.main.async(execute: {
+                self.placeMapView.removeAnnotations(old);
+                self.placeMapView.addAnnotations(self.fuels);
+            })
+        }
+    }
+    
+    func getChargingPoints(bottom: CLLocationCoordinate2D, top: CLLocationCoordinate2D,  center: CLLocationCoordinate2D) {
+        self.geoService.chargingPoint(min: bottom, max: top, center: center).responseJSON { (response) in
+            let old:[ChargingPoint] = self.chargingPoints;
+            self.chargingPoints.removeAll();
+            if let result = response.result.value {
+                let jsonResult = JSON(result);
+                for value in jsonResult["result"].array! {
+                    let point:ChargingPoint = ChargingPointFactory.getChargingPointFromJson(value);
+                    self.chargingPoints.append(point);
+                }
+            }
+            print("-- getChargingPoints() -- \(self.chargingPoints.count)");
+            DispatchQueue.main.async(execute: {
+                self.placeMapView.removeAnnotations(old);
+                self.placeMapView.addAnnotations(self.chargingPoints);
+            })
+        }
+    }
+    
+    func getCrashPlaces(bottom: CLLocationCoordinate2D, top: CLLocationCoordinate2D,  center: CLLocationCoordinate2D) {
+        self.geoService.crash(min: bottom, max: top, center: center).responseJSON { (response) in
+            let old:[CrashPlace] = self.crashPlaces;
+            self.crashPlaces.removeAll();
+            if let result = response.result.value {
+                let jsonResult = JSON(result);
+                for value in jsonResult["result"].array! {
+                    let point:CrashPlace = CrashPlaceFactory.getChargingPointFromJson(value);
+                    self.crashPlaces.append(point);
+                }
+            }
+            print("-- getCrashPlaces() -- \(self.crashPlaces.count)");
+            DispatchQueue.main.async(execute: {
+                self.placeMapView.removeAnnotations(old);
+                self.placeMapView.addAnnotations(self.crashPlaces);
+            })
         }
     }
     
@@ -204,7 +254,9 @@ extension MapViewController : MKMapViewDelegate {
             }
             else {
                 self.annotationsParking.removeAll();
+                self.parkings.removeAll();
                 self.clusteringManager.removeAll();
+                self.placeTableView.reloadData();
                 self.fbReloadData();
             }
             
@@ -216,14 +268,14 @@ extension MapViewController : MKMapViewDelegate {
             }
             
             if self.electricBtn.isSelected {
-                //TODO: self.getElectrics(bottom: bottom, top: top, center: userLoc.coordinate);
+                self.getChargingPoints(bottom: bottom, top: top, center: userLoc.coordinate);
             }
             else {
                 //TODO: self.placeMapView.removeAnnotations(annotationsElectric);
             }
             
             if self.accidentBtn.isSelected {
-                //TODO: self.getAccidents(bottom: bottom, top: top, center: userLoc.coordinate);
+                self.getCrashPlaces(bottom: bottom, top: top, center: userLoc.coordinate);
             }
             else {
                 //TODO: self.placeMapView.removeAnnotations(annotationsAccident);
@@ -312,7 +364,6 @@ extension MapViewController : MKMapViewDelegate {
             }
             
             return clusterView
-            
         }
         
         return nil;
@@ -330,20 +381,20 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.places.count;
+        return self.parkings.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:PlaceTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellId) as! PlaceTableViewCell;
         
-        let place = self.places[indexPath.row];
+        let place = self.parkings[indexPath.row];
         cell.setPlace(place);
         
         return cell;
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let place = self.places[indexPath.row];
+        let place = self.parkings[indexPath.row];
         self.zoomOnMap(place.coordinate, meters: 3);
         self.alertForParking(place);
     }
