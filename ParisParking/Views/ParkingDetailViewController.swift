@@ -14,6 +14,10 @@ import SwiftyJSON
 class ParkingDetailViewController: UIViewController {
     
     @IBOutlet weak var placeMapView: MKMapView!
+    @IBOutlet weak var stepTableView: UITableView!
+    @IBOutlet weak var navigateBtn: UIButton!
+    
+    let cellId = "StepRouteCell"
     
     let locationManager: CLLocationManager = CLLocationManager();
 
@@ -23,6 +27,7 @@ class ParkingDetailViewController: UIViewController {
     
     var parking:Parking!
     var routes:[MKRoute]!
+    var route:MKRoute!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +37,7 @@ class ParkingDetailViewController: UIViewController {
         self.initMapView();
         self.placeMapView.add((routes.first?.polyline)!);
         
+        self.initTableView();
         
         self.parkingService.avaibility(parking)
             .responseJSON { (response) in
@@ -43,17 +49,15 @@ class ParkingDetailViewController: UIViewController {
                     print("avaibility -- JSON : \(json)");
                 }
             }
-        
-        print("Route found : \(routes.count)");
-        for route:MKRoute in routes {
-            print("\(route.name) -- \(route.distance) -- \(route.expectedTravelTime)");
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.route = routes.first;
         hasFinishRendering = true;
+        self.stepTableView.reloadData();
     }
     
+    @IBOutlet weak var navigateAction: UITableView!
     func askAvailabality() {
         let alertCtrl:UIAlertController = UIAlertController(title: "Available", message: "Is there available place ?", preferredStyle: .alert);
         alertCtrl.addAction(UIAlertAction(title: "Nothing", style: .default, handler: { (action) in
@@ -152,4 +156,30 @@ extension ParkingDetailViewController : MKMapViewDelegate {
         
         return MKOverlayRenderer(overlay: overlay)
     }
+}
+
+extension ParkingDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func initTableView() {
+        self.stepTableView.delegate = self;
+        self.stepTableView.dataSource = self;
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.route.steps.count;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell:UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellId);
+        
+        if cell == nil {
+            cell = UITableViewCell(style: .default, reuseIdentifier: cellId);
+        }
+        
+        let step:MKRouteStep = self.route.steps[indexPath.row];
+        cell?.textLabel?.text = step.instructions;
+        
+        return cell!;
+    }
+    
 }

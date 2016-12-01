@@ -8,7 +8,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ParkingDetailViewController" customModule="ParisParking" customModuleProvider="target">
             <connections>
+                <outlet property="navigateAction" destination="yeJ-fT-AzA" id="Beh-cs-VKM"/>
+                <outlet property="navigateBtn" destination="VAa-ij-X7I" id="iCI-Bp-Kz7"/>
                 <outlet property="placeMapView" destination="3OI-eT-fMs" id="15F-he-Pnt"/>
+                <outlet property="stepTableView" destination="yeJ-fT-AzA" id="YOO-N1-Hhz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,13 +21,33 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3OI-eT-fMs"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yeJ-fT-AzA">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAa-ij-X7I">
+                    <color key="backgroundColor" red="0.35162112744902774" green="0.86192930390178879" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="FN1-dx-ASS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="Navigate">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="3OI-eT-fMs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8kz-gR-QfZ"/>
+                <constraint firstItem="VAa-ij-X7I" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Nl0-ul-wQJ"/>
                 <constraint firstItem="3OI-eT-fMs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UhI-KD-r98"/>
                 <constraint firstItem="3OI-eT-fMs" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.4" id="axJ-mG-hE7"/>
+                <constraint firstItem="VAa-ij-X7I" firstAttribute="top" secondItem="yeJ-fT-AzA" secondAttribute="bottom" id="axi-1N-MNv"/>
+                <constraint firstAttribute="bottom" secondItem="VAa-ij-X7I" secondAttribute="bottom" id="duZ-00-Rii"/>
                 <constraint firstItem="3OI-eT-fMs" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="fko-ID-MCY"/>
+                <constraint firstItem="VAa-ij-X7I" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="iHI-Zt-Pp7"/>
+                <constraint firstItem="yeJ-fT-AzA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jcm-nP-dv2"/>
+                <constraint firstItem="yeJ-fT-AzA" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="knZ-QC-5Vz"/>
+                <constraint firstItem="yeJ-fT-AzA" firstAttribute="top" secondItem="3OI-eT-fMs" secondAttribute="bottom" id="vs7-p1-dhI"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <point key="canvasLocation" x="32.5" y="119.5"/>
