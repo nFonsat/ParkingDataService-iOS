@@ -365,6 +365,20 @@ extension MapViewController : MKMapViewDelegate {
             
             return clusterView
         }
+        else if annotation is Place {
+            let place:Place = annotation as! Place;
+            let defaultPinID = "com.invasivecode.pin"
+            
+            var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: defaultPinID)
+            if (pinView == nil) {
+                pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: defaultPinID)
+            }
+            
+            pinView?.canShowCallout = true
+            pinView?.image = UIImage(named: place.image)
+            
+            return pinView;
+        }
         
         return nil;
     }

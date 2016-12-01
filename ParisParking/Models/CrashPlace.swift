@@ -10,4 +10,12 @@ import UIKit
 
 class CrashPlace: Place {
     var creation:Date?
+    
+    override var image: String {
+        get {
+            return "accident-pressed"
+        }
+        set {}
+    }
+    
 }
