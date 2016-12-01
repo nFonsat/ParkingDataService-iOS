@@ -45,11 +45,21 @@ class MapViewController: DefaultViewController  {
         
         self.navigationController?.navigationBar.isHidden = true;
         
+        self.parkingBtn.setTitle("", for: .normal)
+        self.parkingBtn.setImage(#imageLiteral(resourceName: "parking-pressed"), for: .selected)
         self.parkingBtn.isSelected = true;
+
+  
+    
+        self.fuelBtn.setImage(#imageLiteral(resourceName: "station-pressed"), for: .selected)
         self.fuelBtn.isSelected = false;
-        self.electricBtn.isSelected = false;
-        self.accidentBtn.isSelected = false;
         
+    
+        self.electricBtn.setImage(#imageLiteral(resourceName: "charge-pressed"), for: .selected)
+        self.electricBtn.isSelected = false;
+        
+         self.accidentBtn.setImage(#imageLiteral(resourceName: "accident-pressed"), for: .selected)
+        self.accidentBtn.isSelected = false;
         clusteringManager.delegate = self;
     }
     
