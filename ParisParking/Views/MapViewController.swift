@@ -46,8 +46,6 @@ class MapViewController: DefaultViewController  {
         initMapView();
         initSearchBar();
         
-        self.navigationController?.navigationBar.isHidden = true;
-        
         self.parkingBtn.isSelected = true;
         self.fuelBtn.isSelected = false;
         self.electricBtn.isSelected = false;
@@ -57,6 +55,7 @@ class MapViewController: DefaultViewController  {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true;
         hasFinishRendering = false;
         self.updateMapView();
     }
