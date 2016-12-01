@@ -36,6 +36,8 @@
 		10919E991DEF51330005C17D /* ChargingPointFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10919E981DEF51330005C17D /* ChargingPointFactory.swift */; };
 		10919E9B1DEF8FA10005C17D /* CrashPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10919E9A1DEF8FA10005C17D /* CrashPlace.swift */; };
 		10919E9D1DEF8FD50005C17D /* CrashPlaceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10919E9C1DEF8FD50005C17D /* CrashPlaceFactory.swift */; };
+		10919EA31DF01C710005C17D /* ParkingDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10919EA21DF01C710005C17D /* ParkingDataService.swift */; };
+		10919EA51DF01CB20005C17D /* WebParkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10919EA41DF01CB20005C17D /* WebParkingService.swift */; };
 		10D3C8F31DD0BD9E000A9B87 /* MKMapViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D3C8F21DD0BD9E000A9B87 /* MKMapViewExt.swift */; };
 		10E565511DEEF65300E6D5C3 /* FuelStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E565501DEEF65300E6D5C3 /* FuelStation.swift */; };
 		10E565551DEF033A00E6D5C3 /* FuelStationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E565541DEF033A00E6D5C3 /* FuelStationFactory.swift */; };
@@ -89,6 +91,8 @@
 		10919E981DEF51330005C17D /* ChargingPointFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargingPointFactory.swift; sourceTree = "<group>"; };
 		10919E9A1DEF8FA10005C17D /* CrashPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashPlace.swift; sourceTree = "<group>"; };
 		10919E9C1DEF8FD50005C17D /* CrashPlaceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashPlaceFactory.swift; sourceTree = "<group>"; };
+		10919EA21DF01C710005C17D /* ParkingDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingDataService.swift; sourceTree = "<group>"; };
+		10919EA41DF01CB20005C17D /* WebParkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebParkingService.swift; sourceTree = "<group>"; };
 		10D3C8F21DD0BD9E000A9B87 /* MKMapViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExt.swift; sourceTree = "<group>"; };
 		10E565501DEEF65300E6D5C3 /* FuelStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelStation.swift; sourceTree = "<group>"; };
 		10E565541DEF033A00E6D5C3 /* FuelStationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelStationFactory.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				10353CE11DCF405200A74914 /* GeoPointService.swift */,
+				10919EA21DF01C710005C17D /* ParkingDataService.swift */,
+				10919EA41DF01CB20005C17D /* WebParkingService.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -330,6 +336,7 @@
 				104D05A81DD203E8009B45B7 /* FBBoundingBox+MapKit.swift in Sources */,
 				104D05A51DD203E8009B45B7 /* FBAnnotationClusterTemplate.swift in Sources */,
 				100B69221DED8DDA00BCEC66 /* PlaceTableViewCell.swift in Sources */,
+				10919EA31DF01C710005C17D /* ParkingDataService.swift in Sources */,
 				104D05A31DD203E8009B45B7 /* FBAnnotation.swift in Sources */,
 				104D05AD1DD203E8009B45B7 /* FBZoomLevel.swift in Sources */,
 				10E565571DEF03C300E6D5C3 /* PlaceFactory.swift in Sources */,
@@ -339,6 +346,7 @@
 				104D05AC1DD203E8009B45B7 /* FBQuadTreeNode.swift in Sources */,
 				10919E9B1DEF8FA10005C17D /* CrashPlace.swift in Sources */,
 				10919E9D1DEF8FD50005C17D /* CrashPlaceFactory.swift in Sources */,
+				10919EA51DF01CB20005C17D /* WebParkingService.swift in Sources */,
 				10353CEB1DCF581B00A74914 /* Parking.swift in Sources */,
 				104D05A91DD203E8009B45B7 /* FBBoundingBox.swift in Sources */,
 				10353CEE1DCF5AC300A74914 /* ParkingFactory.swift in Sources */,

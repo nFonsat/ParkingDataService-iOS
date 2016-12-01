@@ -305,15 +305,12 @@ extension MapViewController : MKMapViewDelegate {
             if let msg = error {
                 print("Error - goToPlace", msg.localizedDescription);
             }
-            else if response != nil {
-                let details:MKRoute = (response?.routes.last)!;
+            else if let data = response {
                 
-                self.placeMapView.removeOverlays(self.placeMapView.overlays);
-                self.placeMapView.add(details.polyline);
-                
-                for step:MKRouteStep in details.steps {
-                    print("\(step.instructions) -- \(step.distance)");
-                }
+                let parkingDetailsView:ParkingDetailViewController = ParkingDetailViewController();
+                parkingDetailsView.parking = place;
+                parkingDetailsView.routes = data.routes;
+                self.navigationController?.pushViewController(parkingDetailsView, animated: true);
             }
         }
     }

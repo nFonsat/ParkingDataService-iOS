@@ -11,10 +11,18 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let parkingService:ParkingDataService = ParkingDataService.shared;
+    
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        let device: UIDevice = UIDevice.current;
+        if let uuid = device.identifierForVendor {
+            parkingService.getUserToken(phone: "APPLE-\(uuid)")
+        }
+        
         
         window = UIWindow(frame: UIScreen.main.bounds)
         

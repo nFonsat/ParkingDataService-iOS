@@ -9,12 +9,10 @@
 import Foundation
 import CoreLocation
 import Alamofire
-import CoreLocation
 
 class GeoPointService {
     
-    private let base = "http://192.168.1.41";
-    //private let base = "http://10.33.1.167";
+    private let webService:WebParkingService = WebParkingService.shared;
     
     //MARK: Shared Instance
     
@@ -26,30 +24,25 @@ class GeoPointService {
     func parkings(min:CLLocationCoordinate2D, max:CLLocationCoordinate2D, center:CLLocationCoordinate2D) -> DataRequest {
         let url = self.getUrlForBound("parking", min: min, max: max, limit: 3000, center: center);
         
-        return self.request(url);
+        return webService.request(url);
     }
     
     func fuels(min:CLLocationCoordinate2D, max:CLLocationCoordinate2D, center:CLLocationCoordinate2D) -> DataRequest {
         let url = self.getUrlForBound("fuel", min: min, max: max, limit: 50, center: center);
         
-        return self.request(url);
+        return webService.request(url);
     }
     
     func chargingPoint(min:CLLocationCoordinate2D, max:CLLocationCoordinate2D, center:CLLocationCoordinate2D) -> DataRequest {
         let url = self.getUrlForBound("charging", min: min, max: max, limit: 50, center: center);
         
-        return self.request(url);
+        return webService.request(url);
     }
     
     func crash(min:CLLocationCoordinate2D, max:CLLocationCoordinate2D, center:CLLocationCoordinate2D) -> DataRequest {
         let url = self.getUrlForBound("crash", min: min, max: max, limit: 50, center: center);
         
-        return self.request(url);
-    }
-    
-    private func request(_ url: String) -> DataRequest {
-        print("New request : \(url)");
-        return Alamofire.request(url);
+        return webService.request(url);
     }
     
     private func getUrlForBound(_ data:String,  min:CLLocationCoordinate2D, max:CLLocationCoordinate2D, limit:Int , center:CLLocationCoordinate2D) -> String {
@@ -64,6 +57,6 @@ class GeoPointService {
         
         let limit = limit;
         
-        return self.base.appending("/\(data)/bounds/\(xMin)/\(yMin)/\(xMax)/\(yMax)?limit=\(limit)&center=\(xCenter);\(yCenter)");
+        return "/\(data)/bounds/\(xMin)/\(yMin)/\(xMax)/\(yMax)?limit=\(limit)&center=\(xCenter);\(yCenter)";
     }
 }
